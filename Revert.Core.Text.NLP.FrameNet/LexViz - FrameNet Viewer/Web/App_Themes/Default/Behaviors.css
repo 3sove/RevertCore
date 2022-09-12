@@ -1,0 +1,60 @@
+﻿a:hover
+{
+    cursor: pointer;
+    text-decoration: underline !important;
+}
+
+a:active, a:link, a:visited
+{
+    text-decoration: none;
+}
+
+a.behavior_NoHover:hover
+{
+    cursor: default;
+}
+
+.italics
+{
+    font-style:italic;    
+}
+
+.hover_Pointer
+{
+    cursor: pointer;
+}
+
+.behavior_Centered
+{
+    text-align: center;
+}
+
+.behavior_Left_Justified
+{
+    text-align: left;
+}
+
+.behavior_VerticalAlign_Middle
+{
+    vertical-align: middle;
+}
+
+.behavior_Item_Centered
+{
+    margin: 0 auto;
+}
+
+.DashboardLogo
+{
+    background-image: url('Images/Dashboard Logo.png');
+}
+
+.behavior_Display_Block 
+{
+    display:block;
+}
+
+.behavior_Display_Table 
+{
+    display:table;
+}

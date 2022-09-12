@@ -1,0 +1,134 @@
+﻿/* ________ Default Sizes ________ */
+
+body, textarea, select
+{
+	font-size: 0.8em;
+}
+
+
+/* ________ Text Sizes ________ */
+
+.size_Text_Relative_Small3
+{
+	font-size: 0.7em;
+}
+
+.size_Text_Relative_Small2
+{
+	font-size: 0.8em;
+}
+
+.size_Text_Relative_Small1
+{
+	font-size: 0.9em;
+}
+
+.size_Text_Small 
+{
+    font-size: small;
+}
+
+.size_Text_Medium
+{
+	font-size: medium;
+}
+
+.size_Text_Large1
+{
+	font-size: large;
+}
+
+.size_Text_Large2
+{
+	font-size: x-large;
+}
+
+.size_Text_Large3 
+{
+    font-size: xx-large;
+}
+
+.size_Text_Relative_Large1
+{
+	font-size: 1.1em;
+}
+
+.size_Text_Relative_Large2
+{
+	font-size: 1.3em;
+}
+
+.size_Text_Relative_Large3
+{
+	font-size: 1.5em;
+}
+
+.size_Text_Relative_Large4
+{
+	font-size: 1.7em;
+}
+
+.size_Text_Relative_Large5
+{
+	font-size: 1.9em;
+}
+
+.size_Text_Relative_Large6
+{
+	font-size: 2.1em;
+}
+
+.size_Text_Relative_Large7
+{
+	font-size: 2.3em;
+}
+
+.size_Text_Relative_Large8
+{
+	font-size: 2.5em;
+}
+
+.size_Text_Relative_Large9
+{
+	font-size: 2.7em;
+}
+
+.size_Text_Relative_Large10
+{
+	font-size: 2.9em;
+}
+
+.size_Height_Button_Large
+{
+	height: 34px;
+	line-height: 34px;
+}
+
+.size_Height_TextBox_SingleLine_Large
+{
+	height: 28px;
+	line-height: 28px;
+}
+
+.size_Height_Message_Large
+{
+	height: 28px;
+	line-height: 28px;	
+}
+
+.size_Height_Message_Very_Large
+{
+	height: 150px;
+	line-height: 150px;	
+}
+
+.size_Height_TextBox_MultiLine
+{
+    height: 20px;
+    line-height: 20px;
+}
+
+.size_Width_Full 
+{
+    width: 100%;
+}

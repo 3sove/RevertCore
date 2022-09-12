@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Textures\**" />
+    <EmbeddedResource Remove="Textures\**" />
+    <None Remove="Textures\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Revert.Core.Common\Revert.Core.Common.csproj" />
+  </ItemGroup>
+
+</Project>

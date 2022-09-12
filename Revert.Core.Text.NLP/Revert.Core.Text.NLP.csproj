@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Platforms>AnyCPU;x64</Platforms>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Revert.Core.Common\Revert.Core.Common.csproj" />
+    <ProjectReference Include="..\Revert.Core.IO\Revert.Core.IO.csproj" />
+    <ProjectReference Include="..\Revert.Core.Text.NLP.FrameNet\Revert.Core.Text.NLP.FrameNet.csproj" />
+    <ProjectReference Include="..\Revert.Core.Text.NLP.WordNet\Revert.Core.Text.NLP.WordNet.csproj" />
+  </ItemGroup>
+
+</Project>

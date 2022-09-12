@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CSharpTest.Net.BPlusTree" Version="2.14.126.467" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Revert.Core.Graph\Revert.Core.Graph.csproj" />
+    <ProjectReference Include="..\Revert.Core.IO\Revert.Core.IO.csproj" />
+  </ItemGroup>
+
+</Project>

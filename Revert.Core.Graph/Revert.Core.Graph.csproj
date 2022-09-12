@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Platforms>AnyCPU;x64</Platforms>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Revert.Core.Common\Revert.Core.Common.csproj" />
+    <ProjectReference Include="..\Revert.Core.Indexing\Revert.Core.Indexing.csproj" />
+    <ProjectReference Include="..\Revert.Core.IO\Revert.Core.IO.csproj" />
+    <ProjectReference Include="..\Revert.Core.MachineLearning\Revert.Core.MachineLearning.csproj" />
+    <ProjectReference Include="..\Revert.Core.Search\Revert.Core.Search.csproj" />
+    <ProjectReference Include="..\Revert.Core.Text.Tokenization\Revert.Core.Text.Tokenization.csproj" />
+  </ItemGroup>
+
+</Project>

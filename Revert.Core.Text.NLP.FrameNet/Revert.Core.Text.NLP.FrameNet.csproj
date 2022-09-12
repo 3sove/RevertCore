@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Platforms>AnyCPU;x64</Platforms>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="LexViz - FrameNet Viewer\**" />
+    <EmbeddedResource Remove="LexViz - FrameNet Viewer\**" />
+    <None Remove="LexViz - FrameNet Viewer\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Revert.Core.Common\Revert.Core.Common.csproj" />
+  </ItemGroup>
+
+</Project>

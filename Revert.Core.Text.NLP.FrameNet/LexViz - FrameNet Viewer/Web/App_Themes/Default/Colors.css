@@ -1,0 +1,203 @@
+﻿/* ________ Default Colors ________ */
+
+a:link, a:visited {
+    color: #3179AA;
+}
+
+a:hover {
+    color: #9CE !important;
+}
+
+body, textarea, select {
+    background: #FFF;
+    color: #222;
+}
+
+/* ________ Background Colors ________ */
+
+.color_Background_Main {
+    background: #FFF !important;
+}
+
+.color_Background_Grey_1 {
+    background: #333 !important;
+}
+
+.color_Background_Grey_2 {
+    background: #666666 !important;
+}
+
+.color_Background_Grey_3 {
+    background: #888888 !important;
+}
+
+.color_Background_Grey_4 {
+    background: #999999 !important;
+}
+
+.color_Background_Grey_5 {
+    background: #CCC !important;
+}
+
+.color_Background_Grey_6 {
+    background-color: #EEEEEE !important;
+}
+
+
+.color_Background_MainTheme_1 {
+    background: #4cb3d0 !important;
+}
+
+.color_Background_MainTheme_2 {
+    background: #b1e0ed !important;
+}
+
+.color_Background_MainTheme_3 {
+    background: #c8e4eb !important;
+}
+
+.color_Background_MainTheme_4 {
+    background: #dcebef !important;
+}
+
+
+.color_Background_Hilight {
+    background-color: #FFFF00 !important;
+}
+
+
+.color_Background_Transparent {
+    background-color: transparent !important;
+}
+
+/* ________ Border Colors ________ */
+
+.color_Border_MainTheme_1 {
+    border-color: #3179AA !important;
+}
+
+.color_Border_MainTheme_2
+{
+    border-color: #55AAEE !important;
+}
+
+
+.color_Border_Grey_1 {
+    border-color: #222 !important;
+}
+
+/* ________ Border & Background Combination Colors ________ */
+
+
+.color_BorderBackground_Grey_1 {
+    border-color: #999 !important;
+    background-color: #DDD !important;
+}
+
+.color_BorderBackground_MainTheme_1 {
+    border-color: #3179AA !important;
+    background-color: #81AECE !important;
+}
+
+.color_BorderBackground_MainTheme_1:hover {
+    border-color: #409DDD !important;
+    background-color: #94C6EA !important;
+}
+
+.color_BorderBackground_MainTheme_1_2 {
+    border-color: #5484A4 !important;
+    background-color: #A6BCCC !important;
+}
+
+.color_BorderBackground_MainTheme_1_2:hover {
+    border-color: #7791A3 !important;
+    background-color: #BDD8EB !important;
+}
+
+.color_BorderBackground_MainTheme_1_Inverted {
+    border-color: #99CCEE !important;
+    background-color: #3179AA !important;
+}
+
+.color_BorderBackground_MainTheme_1_Inverted:hover {
+    border-color: #3179AA !important;
+    background-color: #99CCEE !important;
+}
+
+
+.color_BorderBackground_Secret {
+    border-color: #550202 !important;
+    background-color: #980303 !important;
+}
+
+
+/* ________ Text Colors ________ */
+
+.color_Text_Important {
+    color: #E64A17 !important;
+}
+
+.color_Text_MainTheme_1 {
+    color: #265B7E !important;
+}
+
+.color_Text_MainTheme_2{
+    color: #3179AA !important;
+}
+
+.color_Text_MainTheme_3 {
+    color: #3B90C9 !important;
+}
+
+.color_Text_MainTheme_4 {
+    color: #68B1E2 !important;
+}
+
+.color_Text_MainTheme_5 {
+    color: #96CBEF !important;
+}
+
+.color_Text_Grey_1 {
+    color: #111 !important;
+}
+
+.color_Text_Grey_2 {
+    color: #333 !important;
+}
+
+.color_Text_Grey_3 {
+    color: #444 !important;
+}
+
+.color_Text_Grey_4 {
+    color: #555 !important;
+}
+
+.color_Text_Grey_5 {
+    color: #777 !important;
+}
+
+.color_Text_Grey_6 {
+    color: #BBB !important;
+}
+
+.color_Text_Grey_7 {
+    color: #DDD !important;
+}
+
+
+.color_Text_Errors {
+    color: #BB1010 !important;
+}
+
+.color_Text_Green {
+    color: #7ABC1E !important;
+}
+
+.color_Text_Grey_2Green {
+    color: #689f1a !important;
+}
+
+.color_Text_White {
+    color: #FFFFFF !important;
+}

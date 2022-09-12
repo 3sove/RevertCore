@@ -1,0 +1,41 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Default.master.cs" Inherits="LexViz.Default" %>
+<%@ Register TagPrefix="ajax" Namespace="AjaxControlToolkit" Assembly="AjaxControlToolkit, Version=4.1.60919.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="expires" content="0" />
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <title></title>
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server"></asp:ContentPlaceHolder>
+    <script type="text/javascript" src="Scripts/Dashboard.js"></script>
+</head>
+<body style="height: 100%;">
+    <form runat="server" style="height: 100%;">
+        <ajax:ToolkitScriptManager runat="server" ID="smMain" EnableHistory="true">
+        </ajax:ToolkitScriptManager>
+
+        <div class="size_Width_Full" style="position: relative; min-height: 100%;">
+            <div style="padding-bottom: 30px;">
+                <asp:ContentPlaceHolder ID="PageHeader" runat="server" />
+                <asp:ContentPlaceHolder ID="PageErrors" runat="server" />
+                <asp:PlaceHolder runat="server" ID="phBody"></asp:PlaceHolder>
+                <asp:ContentPlaceHolder ID="PageBody" runat="server" />
+            </div>
+
+            <div style="position: absolute; width: 100%; left: 0; bottom: 0;" class="size_Width_Full">
+                <asp:ContentPlaceHolder ID="PageFooter" runat="server" />
+            </div>
+        </div>
+        <%--        <asp:Table runat="server" ID="tblMaster" Width="100%" CellPadding="0" CellSpacing="0" Style="position: relative; padding-bottom: 100px;">
+            <asp:TableRow>
+                <asp:TableCell Width="100%" Style="min-height: 100%;">
+
+                </asp:TableCell>
+            </asp:TableRow>
+        </asp:Table>--%>
+    </form>
+</body>
+</html>

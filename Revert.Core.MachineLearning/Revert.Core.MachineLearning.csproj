@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Platforms>AnyCPU;x64</Platforms>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Revert.Core.IO\Revert.Core.IO.csproj" />
+    <ProjectReference Include="..\Revert.Core.Mathematics\Revert.Core.Mathematics.csproj" />
+    <ProjectReference Include="..\Revert.Core.Text.Extraction\Revert.Core.Text.Extraction.csproj" />
+  </ItemGroup>
+
+</Project>

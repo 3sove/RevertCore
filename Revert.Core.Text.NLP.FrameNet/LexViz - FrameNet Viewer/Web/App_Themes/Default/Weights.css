@@ -1,0 +1,29 @@
+﻿/* ________ Default Weights ________ */
+
+body, textarea, select
+{
+	font-weight: normal;
+}
+
+
+/* ________ Weights ________ */
+
+.weight_Normal
+{
+	font-weight: normal;
+}
+
+.weight_Light
+{
+	font-weight: lighter;
+}
+
+.weight_Bold
+{
+	font-weight: bold;
+}
+
+.weight_Bolder
+{
+	font-weight: bolder;
+}

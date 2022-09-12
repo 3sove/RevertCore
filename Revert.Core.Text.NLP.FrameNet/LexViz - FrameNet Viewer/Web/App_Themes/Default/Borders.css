@@ -1,0 +1,83 @@
+﻿/* ________ Borders Colors ________ */
+
+.border_Solid_Thick
+{
+    border-style: solid;
+    border-width: 2px;
+}
+
+.border_Solid_Thin
+{
+    border-style: solid;
+    border-width: 1px;
+}
+
+.border_None
+{
+    border-style: none;
+}
+
+.border_Solid_Thin_Bottom
+{
+    border-bottom-style:solid !important;
+    border-bottom-width:1px !important;
+}
+
+.border_Solid_Thick_Bottom
+{
+    border-bottom-style:solid !important;
+    border-bottom-width:2px !important;
+}
+
+.border_MainTheme
+{
+    border-color:#7ABC1E;
+}
+
+.border_MainThemeShadow_Dark
+{
+    border-left-color: #999 !important;
+    border-top-color: #999 !important;
+    border-right-color: #444 !important;
+    border-bottom-color: #444 !important;
+}
+
+.border_MainThemeShadow
+{
+    border-left-color: #CCC !important;
+    border-top-color: #CCC !important;
+    border-right-color: #888 !important;
+    border-bottom-color: #888 !important;
+}
+
+.border_MainThemeLight
+{
+    border-color: #AEF34C !important;
+}
+
+.border_MainThemeMediumLight
+{
+    border-color: #CEF892 !important;
+}
+
+.border_MainThemeVeryLight
+{
+    border-color: #EEFFCC !important;
+}
+
+
+.border_HighContrast 
+{
+    border-color:#EEEEEE;
+}
+
+.border_MediumContrast 
+{
+    border-color:#888888;
+}
+
+.border_LowContrast 
+{
+    border-color:#444444;
+}
+

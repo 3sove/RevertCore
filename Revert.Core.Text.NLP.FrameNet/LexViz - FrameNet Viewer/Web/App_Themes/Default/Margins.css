@@ -1,0 +1,111 @@
+﻿/* ________ Default Margins ________ */
+
+body, textarea, select, span
+{
+	margin: 0px;
+}
+
+/* ________ Margins ________ */
+
+
+.margin_Small
+{
+	margin: 4px;
+}
+
+.margin_Medium 
+{
+    margin: 10px;
+}
+
+.margin_Large
+{
+	margin: 15px;
+}
+
+ /* _________ TOP _________ */
+
+.margin_Top_Small
+{
+    margin-top:5px;
+}
+
+.margin_Top_Medium
+{
+	margin-top: 10px;
+}
+
+.margin_Top_Large
+{
+	margin-top: 15px;
+}
+
+.margin_Top_VeryLarge
+{
+	margin-top: 25px;
+}
+
+ /* _________ BOTTOM _________ */
+
+.margin_Bottom_Small
+{
+    margin-bottom:5px;
+}
+
+.margin_Bottom_Large
+{
+	margin-bottom: 15px;
+}
+
+ /* _________ LEFT _________ */
+
+.margin_Left_Small
+{
+	margin-left: 5px;
+}
+
+.margin_Left_Medium
+{
+	margin-left: 10px;
+}
+
+.margin_Left_Large
+{
+	margin-left: 15px;
+}
+
+.margin_Left_VeryLarge
+{
+	margin-left: 25px;
+}
+
+ /* _________ RIGHT _________ */
+
+.margin_Right_Small
+{
+	margin-right: 5px;
+}
+
+.margin_Right_Medium 
+{
+    margin-right: 10px;
+}
+
+.margin_Right_Large
+{
+	margin-right: 15px;
+}
+
+ /* _________ MISC _________ */
+
+.margin_Top_Bottom_Small
+{
+    margin-top:5px;
+    margin-bottom:5px;
+}
+
+.margin_Left_Right_Small
+{
+	margin-left: 5px;
+	margin-right: 5px;
+}

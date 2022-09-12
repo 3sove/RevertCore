@@ -1,0 +1,30 @@
+﻿.color_Text_UNCLASSIFIED
+{
+    color: #7ABC1E !important;
+}
+
+.color_Background_UNCLASSIFIED
+{
+    background-color: #7ABC1E !important;
+}
+
+.color_Background_SECRET
+{
+    background-color: #BF0000 !important;
+}
+
+
+.color_Text_SECRET
+{
+    color: #FF0000 !important;
+}
+
+.color_Text_CONFIDENTIAL
+{
+    color: #55AAEE !important;
+}
+
+.color_Text_TOP_SECRET
+{
+    color: #EE6600 !important;
+}

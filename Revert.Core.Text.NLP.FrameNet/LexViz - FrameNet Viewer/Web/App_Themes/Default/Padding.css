@@ -1,0 +1,103 @@
+﻿/* ________ Default Padding ________ */
+
+body, textarea, select, span
+{
+	padding: 0px;
+}
+
+/* ________ Padding ________ */
+
+.padding_None
+{
+	padding: 0px;
+}
+
+.padding_Small
+{
+    padding:4px;
+    overflow:hidden;
+}
+
+.padding_Medium
+{
+    padding:8px;
+    overflow:hidden;
+}
+
+ /* _________ TOP _________ */
+
+.padding_Top_Small
+{
+    padding-top: 5px;
+    overflow:hidden;
+}
+
+.padding_Top_Medium
+{
+    padding-top: 10px;
+    overflow:hidden;
+}
+
+.padding_Top_Large
+{
+	padding-bottom: 15px;
+    overflow:hidden;
+}
+
+ /* _________ BOTTOM _________ */
+  
+.padding_Bottom_Medium 
+{
+    padding-bottom: 10px;
+    overflow:hidden;
+}
+
+.padding_Bottom_Large
+{
+	padding-bottom: 15px;
+    overflow:hidden;
+}
+
+ /* _________ LEFT _________ */
+
+.padding_Left_Small
+{
+	padding-left: 5px;
+    overflow:hidden;
+}
+
+.padding_Left_Large
+{
+	padding-left: 15px;
+    overflow:hidden;
+}
+
+ /* _________ RIGHT _________ */
+  
+.padding_Right_Small
+{
+	padding-right: 5px;
+    overflow:hidden;
+}
+
+.padding_Right_Large
+{
+	padding-right: 15px;
+    overflow:hidden;
+}
+
+ /* _________ MISC _________ */
+ 
+.padding_Top_Bottom_VerySmall
+{
+    padding-top:2px;
+    padding-bottom:2px;
+    overflow:hidden;
+}
+
+.padding_Left_Right_Medium
+{
+    padding-left:8px;
+    padding-right:8px;
+    overflow:hidden;
+}
