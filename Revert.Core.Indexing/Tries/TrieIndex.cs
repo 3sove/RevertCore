@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using MongoDB.Bson;
-using Revert.Core.Common;
 using Revert.Core.Common.Types;
-using Revert.Core.Extensions;
 using Revert.Core.IO.Stores;
-using Revert.Core.IO.Serialization;
 
 namespace Revert.Core.Indexing.Tries
 {
@@ -18,19 +14,10 @@ namespace Revert.Core.Indexing.Tries
         public IKeyValueStore<KeyPair<ObjectId, ObjectId>, ObjectId> ChildByNodeIdAndTokenId { get; set; }
         public KeyedIndex<T> ValuesByNodeId { get; set; }
 
-        //public BPlusTree<byte[], uint> ChildCountByNodeIdAndTokneId { get; set; } 
-
         public TrieIndex(string connectionString, string databaseName, string collectionName)
         {
             NodeIdsByTokenId = new KeyedIndex<ObjectId>(connectionString, databaseName, $"{collectionName}_NodeIdsByTokenId");
-
             RootNodeIdByTokenId = new MongoKeyValueStore<ObjectId, ObjectId>(connectionString, databaseName, $"{collectionName}_RootNodeIdsByTokenId");
-
-            //ChildByNodeIdAndTokenId = new KeyValueStore<KeyPair<ObjectId, ObjectId>, ObjectId>(connectionString, databaseName, $"{collectionName}_ChildByNodeIdAndTokenId",
-            //        new KeyGenerator<KeyPair<ObjectId, ObjectId>>(
-            //            new KeyPair<ObjectId, ObjectId>(ObjectId.GenerateNewId(), ObjectId.GenerateNewId()),
-            //        pair => new KeyPair<ObjectId, ObjectId>(pair.KeyOne, ObjectId.GenerateNewId())));
-
             ValuesByNodeId = new KeyedIndex<T>(connectionString, databaseName, $"{collectionName}_ValuesByNodeId");
         }
 

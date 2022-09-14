@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Reflection;
 using System.Text;
 using System.Threading;
@@ -15,13 +14,9 @@ using Revert.Core.Graph.MetaData;
 using Revert.Core.Graph.Search;
 using Revert.Core.Graph.Vertices;
 using Revert.Core.Indexing;
-using Revert.Core.Indexing.Tries;
-using Revert.Core.IO.Files;
-using Revert.Core.IO.Serialization;
 using Revert.Core.Search;
 using Revert.Core.Text.Tokenization;
 using ProtoBuf;
-using Revert.Core.Common;
 using Revert.Core.Common.Types;
 using Revert.Core.Graph.MetaData.DataPoints;
 using Revert.Core.IO;
@@ -111,10 +106,6 @@ namespace Revert.Core.Graph
         public IEnumerable<TVertex> GetRecentEntities(int count)
         {
             return Vertices.Values.OrderByDescending(item => item.Features?.LastUpdated).Take(count);
-
-            //return Vertices.Values.OrderByDescending(item => item.Id).Take(count);
-            //TODO: Fix Get Recent Entities
-            //throw new NotImplementedException();
         }
 
         public long GetCount()
@@ -130,7 +121,8 @@ namespace Revert.Core.Graph
         public List<ObjectId> GetNeighborIds(TVertex vertex, bool includeEdges = true, bool includeCliques = true)
         {
             var entityIds = new List<ObjectId>();
-            if (includeCliques) vertex.CliqueIds.ForEach(n => entityIds.AddRange(GetCliques().Get(n).VertexIds)); //.Select(v => graph.Vertices.Get(v).Id)));
+            var cliques = GetCliques();
+            if (includeCliques) vertex.CliqueIds.ForEach(cliqueId => entityIds.AddRange(cliques.Get(cliqueId).VertexIds));
             if (includeEdges) entityIds.AddRange(vertex.Edges.Select(edge => edge.VertexId));
             return entityIds;
         }
@@ -675,24 +667,6 @@ namespace Revert.Core.Graph
             }
             return vertices;
         }
-
-        //public Dictionary<string, List<ulong>> GetVerticesByTokenString()
-        //{
-        //    var verticesByTokenString = new Dictionary<string, List<ulong>>();
-        //    foreach (var item in VerticesByTokenId.Items)
-        //    {
-        //        Token token;
-        //        if (TokenIndex.TryGetToken(item.KeyOne, out token))
-        //            verticesByTokenString[token.KeyTwo] = item.KeyTwo.ToList();
-        //    }
-
-        //    //These enable easy debugging or search results
-        //    var orderedEnumerable = verticesByTokenString.OrderBy(dic => dic.KeyOne);
-        //    var orderedDictionary = orderedEnumerable.ToDictionary(dic => dic.KeyOne, dic => dic.KeyTwo);
-        //    Console.WriteLine(orderedDictionary.ToString());
-
-        //    return verticesByTokenString.OrderByDescending(dic => dic.KeyTwo.Count).ToDictionary(dic => dic.KeyOne, dic => dic.KeyTwo);
-        //}
 
         public bool Update(TVertex vertex)
         {

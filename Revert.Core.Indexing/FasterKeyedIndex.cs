@@ -15,7 +15,6 @@ namespace Revert.Core.Indexing
         public KeyPairKeyGenerator(IKeyGenerator<TKey> keyGenerator) : base(new KeyPair<TKey, uint>(keyGenerator.GetNext(), 0), pair => new KeyPair<TKey, uint>(keyGenerator.GetNext(), 0))
         {
         }
-
     }
 
     public abstract class FasterKeyedIndex<TKey, TValue> : IKeyValueStore<TKey, TValue>
@@ -156,6 +155,7 @@ namespace Revert.Core.Indexing
             }
         }
 
+
         //private byte[] GetKeyBytes(TKey key, uint index)
         //{
         //    var keyBytes = GetKeyBytes(key);
@@ -170,6 +170,7 @@ namespace Revert.Core.Indexing
         ///// Return an unpadded array of bytes representing the key
         ///// </summary>
         //protected abstract byte[] GetKeyBytes(TKey key);
+
 
         public void Add(Dictionary<TKey, TValue> items)
         {
