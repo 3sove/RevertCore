@@ -1,4 +1,4 @@
-﻿namespace Revert.Port.LibGDX.Mathematics.Interpolations
+﻿namespace Revert.Core.Mathematics.Interpolations
 {
     /// <summary>
     /// Converted from badlogic's LibGdx interpolation class in Java

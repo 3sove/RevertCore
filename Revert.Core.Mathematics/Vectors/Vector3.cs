@@ -1,9 +1,9 @@
 ﻿using System;
 using Revert.Core.Mathematics;
+using Revert.Core.Mathematics.Interpolations;
 using Revert.Core.Mathematics.Matrices;
-using Revert.Port.LibGDX.Mathematics.Interpolations;
 
-namespace Revert.Port.LibGDX.Mathematics.Vectors
+namespace Revert.Core.Mathematics.Vectors
 {
     public class Vector3 : IVector<Vector3>
     {
@@ -348,156 +348,156 @@ namespace Revert.Port.LibGDX.Mathematics.Vectors
                 x * matrix[1] + y * matrix[4] + z * matrix[7] + matrix[10], x * matrix[2] + y * matrix[5] + z * matrix[8] + matrix[11]);
         }
 
-   //     /** Left-multiplies the vector by the given matrix, assuming the fourth (w) component of the vector is 1.
-		 //* @param matrix The matrix
-		 //* @return This vector for chaining */
-   //     public Vector3 mul(Matrix4 matrix)
-   //     {
-   //         float[] l_mat = matrix.val;
-   //         return this.set(x * l_mat[Matrix4.M00] + y * l_mat[Matrix4.M01] + z * l_mat[Matrix4.M02] + l_mat[Matrix4.M03],
-   //             x * l_mat[Matrix4.M10] + y * l_mat[Matrix4.M11] + z * l_mat[Matrix4.M12] + l_mat[Matrix4.M13],
-   //             x * l_mat[Matrix4.M20] + y * l_mat[Matrix4.M21] + z * l_mat[Matrix4.M22] + l_mat[Matrix4.M23]);
-   //     }
+        //     /** Left-multiplies the vector by the given matrix, assuming the fourth (w) component of the vector is 1.
+        //* @param matrix The matrix
+        //* @return This vector for chaining */
+        //     public Vector3 mul(Matrix4 matrix)
+        //     {
+        //         float[] l_mat = matrix.val;
+        //         return this.set(x * l_mat[Matrix4.M00] + y * l_mat[Matrix4.M01] + z * l_mat[Matrix4.M02] + l_mat[Matrix4.M03],
+        //             x * l_mat[Matrix4.M10] + y * l_mat[Matrix4.M11] + z * l_mat[Matrix4.M12] + l_mat[Matrix4.M13],
+        //             x * l_mat[Matrix4.M20] + y * l_mat[Matrix4.M21] + z * l_mat[Matrix4.M22] + l_mat[Matrix4.M23]);
+        //     }
 
-   //     /** Multiplies the vector by the transpose of the given matrix, assuming the fourth (w) component of the vector is 1.
-		 //* @param matrix The matrix
-		 //* @return This vector for chaining */
-   //     public Vector3 traMul(Matrix4 matrix)
-   //     {
-   //         float[] l_mat = matrix.val;
-   //         return this.set(x * l_mat[Matrix4.M00] + y * l_mat[Matrix4.M10] + z * l_mat[Matrix4.M20] + l_mat[Matrix4.M30],
-   //             x * l_mat[Matrix4.M01] + y * l_mat[Matrix4.M11] + z * l_mat[Matrix4.M21] + l_mat[Matrix4.M31],
-   //             x * l_mat[Matrix4.M02] + y * l_mat[Matrix4.M12] + z * l_mat[Matrix4.M22] + l_mat[Matrix4.M32]);
-   //     }
+        //     /** Multiplies the vector by the transpose of the given matrix, assuming the fourth (w) component of the vector is 1.
+        //* @param matrix The matrix
+        //* @return This vector for chaining */
+        //     public Vector3 traMul(Matrix4 matrix)
+        //     {
+        //         float[] l_mat = matrix.val;
+        //         return this.set(x * l_mat[Matrix4.M00] + y * l_mat[Matrix4.M10] + z * l_mat[Matrix4.M20] + l_mat[Matrix4.M30],
+        //             x * l_mat[Matrix4.M01] + y * l_mat[Matrix4.M11] + z * l_mat[Matrix4.M21] + l_mat[Matrix4.M31],
+        //             x * l_mat[Matrix4.M02] + y * l_mat[Matrix4.M12] + z * l_mat[Matrix4.M22] + l_mat[Matrix4.M32]);
+        //     }
 
-   //     /** Left-multiplies the vector by the given matrix.
-		 //* @param matrix The matrix
-		 //* @return This vector for chaining */
-   //     public Vector3 mul(Matrix3 matrix)
-   //     {
-   //         double[] l_mat = matrix.Value;
-   //         return set(x * l_mat[Matrix3.M00] + y * l_mat[Matrix3.M01] + z * l_mat[Matrix3.M02],
-   //             x * l_mat[Matrix3.M10] + y * l_mat[Matrix3.M11] + z * l_mat[Matrix3.M12],
-   //             x * l_mat[Matrix3.M20] + y * l_mat[Matrix3.M21] + z * l_mat[Matrix3.M22]);
-   //     }
+        //     /** Left-multiplies the vector by the given matrix.
+        //* @param matrix The matrix
+        //* @return This vector for chaining */
+        //     public Vector3 mul(Matrix3 matrix)
+        //     {
+        //         double[] l_mat = matrix.Value;
+        //         return set(x * l_mat[Matrix3.M00] + y * l_mat[Matrix3.M01] + z * l_mat[Matrix3.M02],
+        //             x * l_mat[Matrix3.M10] + y * l_mat[Matrix3.M11] + z * l_mat[Matrix3.M12],
+        //             x * l_mat[Matrix3.M20] + y * l_mat[Matrix3.M21] + z * l_mat[Matrix3.M22]);
+        //     }
 
-   //     /** Multiplies the vector by the transpose of the given matrix.
-		 //* @param matrix The matrix
-		 //* @return This vector for chaining */
-   //     public Vector3 traMul(Matrix3 matrix)
-   //     {
-   //         float[] l_mat = matrix.val;
-   //         return set(x * l_mat[Matrix3.M00] + y * l_mat[Matrix3.M10] + z * l_mat[Matrix3.M20],
-   //             x * l_mat[Matrix3.M01] + y * l_mat[Matrix3.M11] + z * l_mat[Matrix3.M21],
-   //             x * l_mat[Matrix3.M02] + y * l_mat[Matrix3.M12] + z * l_mat[Matrix3.M22]);
-   //     }
+        //     /** Multiplies the vector by the transpose of the given matrix.
+        //* @param matrix The matrix
+        //* @return This vector for chaining */
+        //     public Vector3 traMul(Matrix3 matrix)
+        //     {
+        //         float[] l_mat = matrix.val;
+        //         return set(x * l_mat[Matrix3.M00] + y * l_mat[Matrix3.M10] + z * l_mat[Matrix3.M20],
+        //             x * l_mat[Matrix3.M01] + y * l_mat[Matrix3.M11] + z * l_mat[Matrix3.M21],
+        //             x * l_mat[Matrix3.M02] + y * l_mat[Matrix3.M12] + z * l_mat[Matrix3.M22]);
+        //     }
 
-   //     /** Multiplies the vector by the given {@link Quaternion}.
-		 //* @return This vector for chaining */
-   //     public Vector3 mul(Quaternion quat)
-   //     {
-   //         return quat.transform(this);
-   //     }
+        //     /** Multiplies the vector by the given {@link Quaternion}.
+        //* @return This vector for chaining */
+        //     public Vector3 mul(Quaternion quat)
+        //     {
+        //         return quat.transform(this);
+        //     }
 
-   //     /** Multiplies this vector by the given matrix dividing by w, assuming the fourth (w) component of the vector is 1. This is
-		 //* mostly used to project/unproject vectors via a perspective projection matrix.
-		 //*
-		 //* @param matrix The matrix.
-		 //* @return This vector for chaining */
-   //     public Vector3 prj(Matrix4 matrix)
-   //     {
-   //         float[] l_mat = matrix.val;
-   //         float l_w = 1f / (x * l_mat[Matrix4.M30] + y * l_mat[Matrix4.M31] + z * l_mat[Matrix4.M32] + l_mat[Matrix4.M33]);
-   //         return this.set((x * l_mat[Matrix4.M00] + y * l_mat[Matrix4.M01] + z * l_mat[Matrix4.M02] + l_mat[Matrix4.M03]) * l_w,
-   //             (x * l_mat[Matrix4.M10] + y * l_mat[Matrix4.M11] + z * l_mat[Matrix4.M12] + l_mat[Matrix4.M13]) * l_w,
-   //             (x * l_mat[Matrix4.M20] + y * l_mat[Matrix4.M21] + z * l_mat[Matrix4.M22] + l_mat[Matrix4.M23]) * l_w);
-   //     }
+        //     /** Multiplies this vector by the given matrix dividing by w, assuming the fourth (w) component of the vector is 1. This is
+        //* mostly used to project/unproject vectors via a perspective projection matrix.
+        //*
+        //* @param matrix The matrix.
+        //* @return This vector for chaining */
+        //     public Vector3 prj(Matrix4 matrix)
+        //     {
+        //         float[] l_mat = matrix.val;
+        //         float l_w = 1f / (x * l_mat[Matrix4.M30] + y * l_mat[Matrix4.M31] + z * l_mat[Matrix4.M32] + l_mat[Matrix4.M33]);
+        //         return this.set((x * l_mat[Matrix4.M00] + y * l_mat[Matrix4.M01] + z * l_mat[Matrix4.M02] + l_mat[Matrix4.M03]) * l_w,
+        //             (x * l_mat[Matrix4.M10] + y * l_mat[Matrix4.M11] + z * l_mat[Matrix4.M12] + l_mat[Matrix4.M13]) * l_w,
+        //             (x * l_mat[Matrix4.M20] + y * l_mat[Matrix4.M21] + z * l_mat[Matrix4.M22] + l_mat[Matrix4.M23]) * l_w);
+        //     }
 
-   //     /** Multiplies this vector by the first three columns of the matrix, essentially only applying rotation and scaling.
-		 //*
-		 //* @param matrix The matrix
-		 //* @return This vector for chaining */
-   //     public Vector3 rot(Matrix4 matrix)
-   //     {
-   //         float[] l_mat = matrix.val;
-   //         return this.set(x * l_mat[Matrix4.M00] + y * l_mat[Matrix4.M01] + z * l_mat[Matrix4.M02],
-   //             x * l_mat[Matrix4.M10] + y * l_mat[Matrix4.M11] + z * l_mat[Matrix4.M12],
-   //             x * l_mat[Matrix4.M20] + y * l_mat[Matrix4.M21] + z * l_mat[Matrix4.M22]);
-   //     }
+        //     /** Multiplies this vector by the first three columns of the matrix, essentially only applying rotation and scaling.
+        //*
+        //* @param matrix The matrix
+        //* @return This vector for chaining */
+        //     public Vector3 rot(Matrix4 matrix)
+        //     {
+        //         float[] l_mat = matrix.val;
+        //         return this.set(x * l_mat[Matrix4.M00] + y * l_mat[Matrix4.M01] + z * l_mat[Matrix4.M02],
+        //             x * l_mat[Matrix4.M10] + y * l_mat[Matrix4.M11] + z * l_mat[Matrix4.M12],
+        //             x * l_mat[Matrix4.M20] + y * l_mat[Matrix4.M21] + z * l_mat[Matrix4.M22]);
+        //     }
 
-   //     /** Multiplies this vector by the transpose of the first three columns of the matrix. Note: only works for translation and
-		 //* rotation, does not work for scaling. For those, use {@link #rot(Matrix4)} with {@link Matrix4#inv()}.
-		 //* @param matrix The transformation matrix
-		 //* @return The vector for chaining */
-   //     public Vector3 unrotate(Matrix4 matrix)
-   //     {
-   //         float[] l_mat = matrix.val;
-   //         return this.set(x * l_mat[Matrix4.M00] + y * l_mat[Matrix4.M10] + z * l_mat[Matrix4.M20],
-   //             x * l_mat[Matrix4.M01] + y * l_mat[Matrix4.M11] + z * l_mat[Matrix4.M21],
-   //             x * l_mat[Matrix4.M02] + y * l_mat[Matrix4.M12] + z * l_mat[Matrix4.M22]);
-   //     }
+        //     /** Multiplies this vector by the transpose of the first three columns of the matrix. Note: only works for translation and
+        //* rotation, does not work for scaling. For those, use {@link #rot(Matrix4)} with {@link Matrix4#inv()}.
+        //* @param matrix The transformation matrix
+        //* @return The vector for chaining */
+        //     public Vector3 unrotate(Matrix4 matrix)
+        //     {
+        //         float[] l_mat = matrix.val;
+        //         return this.set(x * l_mat[Matrix4.M00] + y * l_mat[Matrix4.M10] + z * l_mat[Matrix4.M20],
+        //             x * l_mat[Matrix4.M01] + y * l_mat[Matrix4.M11] + z * l_mat[Matrix4.M21],
+        //             x * l_mat[Matrix4.M02] + y * l_mat[Matrix4.M12] + z * l_mat[Matrix4.M22]);
+        //     }
 
-   //     /** Translates this vector in the direction opposite to the translation of the matrix and the multiplies this vector by the
-		 //* transpose of the first three columns of the matrix. Note: only works for translation and rotation, does not work for
-		 //* scaling. For those, use {@link #mul(Matrix4)} with {@link Matrix4#inv()}.
-		 //* @param matrix The transformation matrix
-		 //* @return The vector for chaining */
-   //     public Vector3 untransform(Matrix4 matrix)
-   //     {
-   //         float[] l_mat = matrix.val;
-   //         x -= l_mat[Matrix4.M03];
-   //         y -= l_mat[Matrix4.M03];
-   //         z -= l_mat[Matrix4.M03];
-   //         return this.set(x * l_mat[Matrix4.M00] + y * l_mat[Matrix4.M10] + z * l_mat[Matrix4.M20],
-   //             x * l_mat[Matrix4.M01] + y * l_mat[Matrix4.M11] + z * l_mat[Matrix4.M21],
-   //             x * l_mat[Matrix4.M02] + y * l_mat[Matrix4.M12] + z * l_mat[Matrix4.M22]);
-   //     }
+        //     /** Translates this vector in the direction opposite to the translation of the matrix and the multiplies this vector by the
+        //* transpose of the first three columns of the matrix. Note: only works for translation and rotation, does not work for
+        //* scaling. For those, use {@link #mul(Matrix4)} with {@link Matrix4#inv()}.
+        //* @param matrix The transformation matrix
+        //* @return The vector for chaining */
+        //     public Vector3 untransform(Matrix4 matrix)
+        //     {
+        //         float[] l_mat = matrix.val;
+        //         x -= l_mat[Matrix4.M03];
+        //         y -= l_mat[Matrix4.M03];
+        //         z -= l_mat[Matrix4.M03];
+        //         return this.set(x * l_mat[Matrix4.M00] + y * l_mat[Matrix4.M10] + z * l_mat[Matrix4.M20],
+        //             x * l_mat[Matrix4.M01] + y * l_mat[Matrix4.M11] + z * l_mat[Matrix4.M21],
+        //             x * l_mat[Matrix4.M02] + y * l_mat[Matrix4.M12] + z * l_mat[Matrix4.M22]);
+        //     }
 
-   //     /** Rotates this vector by the given angle in degrees around the given axis.
-		 //*
-		 //* @param degrees the angle in degrees
-		 //* @param axisX the x-component of the axis
-		 //* @param axisY the y-component of the axis
-		 //* @param axisZ the z-component of the axis
-		 //* @return This vector for chaining */
-   //     public Vector3 rotate(float degrees, float axisX, float axisY, float axisZ)
-   //     {
-   //         return this.mul(tmpMat.setToRotation(axisX, axisY, axisZ, degrees));
-   //     }
+        //     /** Rotates this vector by the given angle in degrees around the given axis.
+        //*
+        //* @param degrees the angle in degrees
+        //* @param axisX the x-component of the axis
+        //* @param axisY the y-component of the axis
+        //* @param axisZ the z-component of the axis
+        //* @return This vector for chaining */
+        //     public Vector3 rotate(float degrees, float axisX, float axisY, float axisZ)
+        //     {
+        //         return this.mul(tmpMat.setToRotation(axisX, axisY, axisZ, degrees));
+        //     }
 
-   //     /** Rotates this vector by the given angle in radians around the given axis.
-		 //*
-		 //* @param radians the angle in radians
-		 //* @param axisX the x-component of the axis
-		 //* @param axisY the y-component of the axis
-		 //* @param axisZ the z-component of the axis
-		 //* @return This vector for chaining */
-   //     public Vector3 rotateRad(float radians, float axisX, float axisY, float axisZ)
-   //     {
-   //         return this.mul(tmpMat.setToRotationRad(axisX, axisY, axisZ, radians));
-   //     }
+        //     /** Rotates this vector by the given angle in radians around the given axis.
+        //*
+        //* @param radians the angle in radians
+        //* @param axisX the x-component of the axis
+        //* @param axisY the y-component of the axis
+        //* @param axisZ the z-component of the axis
+        //* @return This vector for chaining */
+        //     public Vector3 rotateRad(float radians, float axisX, float axisY, float axisZ)
+        //     {
+        //         return this.mul(tmpMat.setToRotationRad(axisX, axisY, axisZ, radians));
+        //     }
 
-   //     /** Rotates this vector by the given angle in degrees around the given axis.
-		 //*
-		 //* @param axis the axis
-		 //* @param degrees the angle in degrees
-		 //* @return This vector for chaining */
-   //     public Vector3 rotate(Vector3 axis, float degrees)
-   //     {
-   //         tmpMat.setToRotation(axis, degrees);
-   //         return this.mul(tmpMat);
-   //     }
+        //     /** Rotates this vector by the given angle in degrees around the given axis.
+        //*
+        //* @param axis the axis
+        //* @param degrees the angle in degrees
+        //* @return This vector for chaining */
+        //     public Vector3 rotate(Vector3 axis, float degrees)
+        //     {
+        //         tmpMat.setToRotation(axis, degrees);
+        //         return this.mul(tmpMat);
+        //     }
 
-   //     /** Rotates this vector by the given angle in radians around the given axis.
-		 //*
-		 //* @param axis the axis
-		 //* @param radians the angle in radians
-		 //* @return This vector for chaining */
-   //     public Vector3 rotateRad(Vector3 axis, float radians)
-   //     {
-   //         tmpMat.setToRotationRad(axis, radians);
-   //         return this.mul(tmpMat);
-   //     }
+        //     /** Rotates this vector by the given angle in radians around the given axis.
+        //*
+        //* @param axis the axis
+        //* @param radians the angle in radians
+        //* @return This vector for chaining */
+        //     public Vector3 rotateRad(Vector3 axis, float radians)
+        //     {
+        //         tmpMat.setToRotationRad(axis, radians);
+        //         return this.mul(tmpMat);
+        //     }
 
 
         public bool isUnit()
@@ -621,7 +621,7 @@ namespace Revert.Port.LibGDX.Mathematics.Vectors
             float ty = target.y - y * dot;
             float tz = target.z - z * dot;
             float l2 = tx * tx + ty * ty + tz * tz;
-            float dl = st * ((l2 < 0.0001f) ? 1f : 1f / (float)Math.Sqrt(l2));
+            float dl = st * (l2 < 0.0001f ? 1f : 1f / (float)Math.Sqrt(l2));
 
             return scl((float)Math.Cos(theta)).add(tx * dl, ty * dl, tz * dl).nor();
         }
@@ -629,7 +629,7 @@ namespace Revert.Port.LibGDX.Mathematics.Vectors
         /** Converts this {@code Vector3} to a string in the format {@code (x,y,z)}.
 		 * @return a string representation of this object. */
 
-        public String toString()
+        public string toString()
         {
             return "(" + x + "," + y + "," + z + ")";
         }
@@ -637,7 +637,7 @@ namespace Revert.Port.LibGDX.Mathematics.Vectors
         /** Sets this {@code Vector3} to the value represented by the specified string according to the format of {@link #toString()}.
 		 * @param v the string.
 		 * @return this vector for chaining */
-        public Vector3 fromString(String v)
+        public Vector3 fromString(string v)
         {
             int s0 = v.IndexOf(',', 1);
             int s1 = v.IndexOf(',', s0 + 1);
@@ -685,7 +685,7 @@ namespace Revert.Port.LibGDX.Mathematics.Vectors
         public Vector3 setLength2(float len2)
         {
             float oldLen2 = this.len2();
-            return (oldLen2 == 0 || oldLen2 == len2) ? this : scl((float)Math.Sqrt(len2 / oldLen2));
+            return oldLen2 == 0 || oldLen2 == len2 ? this : scl((float)Math.Sqrt(len2 / oldLen2));
         }
 
 
@@ -712,7 +712,7 @@ namespace Revert.Port.LibGDX.Mathematics.Vectors
         }
 
 
-        public bool equals(Object obj)
+        public bool equals(object obj)
         {
             if (this == obj) return true;
             if (obj == null) return false;

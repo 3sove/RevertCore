@@ -1,4 +1,4 @@
-﻿namespace Revert.Port.LibGDX.Mathematics.Interpolations
+﻿namespace Revert.Core.Mathematics.Interpolations
 {
     /** Aka "smoothstep". */
     public class Smooth : Interpolation

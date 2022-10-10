@@ -1,4 +1,6 @@
-﻿namespace Revert.Core.Mathematics.Operations.floats
+﻿using Revert.Core.Mathematics.Extensions;
+
+namespace Revert.Core.Mathematics.Operations.floats
 {
     public class Root : FloatOperation
     {

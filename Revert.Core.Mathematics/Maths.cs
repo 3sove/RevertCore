@@ -1,7 +1,7 @@
 ﻿using Revert.Core.Mathematics.Constraints;
+using Revert.Core.Mathematics.Interpolations;
 using Revert.Core.Mathematics.Matrices;
-using Revert.Port.LibGDX.Mathematics.Interpolations;
-using Revert.Port.LibGDX.Mathematics.Vectors;
+using Revert.Core.Mathematics.Vectors;
 using System;
 using System.Collections.Generic;
 

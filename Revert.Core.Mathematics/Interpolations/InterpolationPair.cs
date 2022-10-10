@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Revert.Port.LibGDX.Mathematics.Interpolations
+namespace Revert.Core.Mathematics.Interpolations
 {
     public class InterpolationPair : Interpolation
     {

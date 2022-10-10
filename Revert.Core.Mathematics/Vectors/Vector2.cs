@@ -1,8 +1,8 @@
 ﻿using System;
 using Revert.Core.Mathematics;
-using Revert.Port.LibGDX.Mathematics.Interpolations;
+using Revert.Core.Mathematics.Interpolations;
 
-namespace Revert.Port.LibGDX.Mathematics.Vectors
+namespace Revert.Core.Mathematics.Vectors
 {
     public class Vector2 : IVector<Vector2>
     {

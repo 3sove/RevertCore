@@ -1,7 +1,7 @@
 ﻿using Revert.Core.Common.Factories;
-using Revert.Port.LibGDX.Mathematics.Vectors;
+using Revert.Core.Mathematics.Vectors;
 
-namespace Revert.Port.LibGDX.Mathematics.Factories
+namespace Revert.Core.Mathematics.Factories
 {
     public class Vec2Factory : Factory<Vector2, Vec2Factory>
     {

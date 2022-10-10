@@ -1,5 +1,6 @@
-﻿using Revert.Port.LibGDX.Mathematics.Factories;
-using Revert.Port.LibGDX.Mathematics.Vectors;
+﻿using Revert.Core.Mathematics.Extensions;
+using Revert.Core.Mathematics.Factories;
+using Revert.Core.Mathematics.Vectors;
 using System.Collections.Generic;
 
 namespace Revert.Core.Mathematics.Curves

@@ -1,13 +1,12 @@
-﻿
+﻿using Revert.Core.Mathematics.Geometry;
+using Revert.Core.Mathematics.Interpolations;
 using Revert.Core.Mathematics.Matrices;
-using Revert.Port.LibGDX.Mathematics.Geometry;
-using Revert.Port.LibGDX.Mathematics.Interpolations;
-using Revert.Port.LibGDX.Mathematics.Vectors;
+using Revert.Core.Mathematics.Vectors;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Revert.Core.Mathematics
+namespace Revert.Core.Mathematics.Extensions
 {
     public static class MathsExtensions
     {

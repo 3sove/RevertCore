@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Revert.Port.LibGDX.Mathematics.Vectors
+namespace Revert.Core.Mathematics.Vectors
 {
     public static class Vertices
     {

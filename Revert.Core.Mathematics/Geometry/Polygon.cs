@@ -1,11 +1,11 @@
 ﻿using Revert.Core.Extensions;
-using Revert.Port.LibGDX.Mathematics.Vectors;
+using Revert.Core.Mathematics.Vectors;
 using System;
 using System.Collections.Generic;
 using System.Numerics;
 using System.Text;
 
-namespace Revert.Port.LibGDX.Mathematics.Geometry
+namespace Revert.Core.Mathematics.Geometry
 {
     public class Polygon
     {

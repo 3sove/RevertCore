@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Revert.Core.Mathematics.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
