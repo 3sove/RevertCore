@@ -1,11 +1,8 @@
 ﻿using Revert.Core.Extensions;
-using Revert.Core.Mathematics.Vectors;
+using Revert.Port.LibGDX.Mathematics.Vectors;
 using System;
-using System.Collections.Generic;
-using System.Numerics;
-using System.Text;
 
-namespace Revert.Core.Mathematics.Geometry
+namespace Revert.Port.LibGDX.Mathematics.Geometry
 {
     public class Rectangle
     {

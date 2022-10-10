@@ -12,7 +12,7 @@ namespace Revert.Core.Mathematics.Matrices
         {
             Value = new double[layers][][];
 
-            for (var layer = 0; layer < layers; layer++) 
+            for (var layer = 0; layer < layers; layer++)
             {
                 Value[layer] = new double[rows][];
                 for (var row = 0; row < rows; row++)

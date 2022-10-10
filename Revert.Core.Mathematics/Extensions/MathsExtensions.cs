@@ -1,12 +1,11 @@
-﻿using Revert.Core.Mathematics.Geometry;
-using Revert.Core.Mathematics.Interpolations;
+﻿
 using Revert.Core.Mathematics.Matrices;
-using Revert.Core.Mathematics.Vectors;
+using Revert.Port.LibGDX.Mathematics.Geometry;
+using Revert.Port.LibGDX.Mathematics.Interpolations;
+using Revert.Port.LibGDX.Mathematics.Vectors;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Numerics;
-using System.Text;
 
 namespace Revert.Core.Mathematics
 {

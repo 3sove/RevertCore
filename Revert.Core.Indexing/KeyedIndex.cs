@@ -2,16 +2,13 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Threading.Tasks;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using Revert.Core.Common;
 using Revert.Core.Common.Types;
 using Revert.Core.Extensions;
 using Revert.Core.IO;
-using Revert.Core.IO.Serialization;
 using Revert.Core.IO.Stores;
 
 namespace Revert.Core.Indexing

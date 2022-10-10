@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Revert.Core.Mathematics.Interpolations
+namespace Revert.Port.LibGDX.Mathematics.Interpolations
 {
     public class Sine : Interpolation
     {

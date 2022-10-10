@@ -1,11 +1,11 @@
 ﻿using Revert.Core.Extensions;
-using Revert.Core.Mathematics.Vectors;
+using Revert.Port.LibGDX.Mathematics.Vectors;
 using System;
 using System.Collections.Generic;
 using System.Numerics;
 using System.Text;
 
-namespace Revert.Core.Mathematics.Geometry
+namespace Revert.Port.LibGDX.Mathematics.Geometry
 {
     public class Polygon
     {
@@ -163,7 +163,23 @@ namespace Revert.Core.Mathematics.Geometry
         public float area()
         {
             float[] vertices = getTransformedVertices();
-            return GeometryUtils.polygonArea(vertices, 0, vertices.Length);
+            return polygonArea(vertices, 0, vertices.Length);
+        }
+
+        /** Computes the area for a convex polygon. */
+        public float polygonArea(float[] polygon, int offset, int count)
+        {
+            float area = 0;
+            int last = offset + count - 2;
+            float x1 = polygon[last], y1 = polygon[last + 1];
+            for (int i = offset; i <= last; i += 2)
+            {
+                float x2 = polygon[i], y2 = polygon[i + 1];
+                area += x1 * y2 - x2 * y1;
+                x1 = x2;
+                y1 = y2;
+            }
+            return area * 0.5f;
         }
 
         //Returns an axis-aligned bounding box of this polygon.

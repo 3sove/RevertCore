@@ -26,7 +26,7 @@ namespace Revert.Core.Mathematics.Matrices
             for (var i = 0; i < rows; i++)
                 Value[i] = new double[columns];
 
-            for (var i = 0; i < rows; i++)
+            for (var i = 0; i < rows; i++) 
                 for (var j = 0; j < columns; j++)
                     Value[i][j] = valueInitializer();
 

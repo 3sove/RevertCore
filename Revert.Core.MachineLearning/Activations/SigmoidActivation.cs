@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Revert.Core.Mathematics.Matrices;
+﻿using Revert.Core.Mathematics.Matrices;
 
 namespace Revert.Core.MachineLearning.Activations
 {

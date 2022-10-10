@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Revert.Core.Mathematics
+﻿namespace Revert.Core.Mathematics
 {
     public static class NeighborDirections
     {

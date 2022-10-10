@@ -1,6 +1,4 @@
 ﻿using Revert.Core.Common.Performance;
-using Revert.Core.Extensions;
-using Revert.Core.MachineLearning.ConvolutionalKernels;
 using Revert.Core.MachineLearning.Data;
 using Revert.Core.MachineLearning.Layers;
 using Revert.Core.Mathematics;
@@ -8,9 +6,7 @@ using Revert.Core.Mathematics.Matrices;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
 using System.Linq;
-using System.Text;
 
 namespace Revert.Core.MachineLearning.ProblemSets
 {

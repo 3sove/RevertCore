@@ -1,14 +1,9 @@
-﻿using Revert.Core.Extensions;
-using Revert.Core.Mathematics.Constraints;
-using Revert.Core.Mathematics.Factories;
-using Revert.Core.Mathematics.Interpolations;
+﻿using Revert.Core.Mathematics.Constraints;
 using Revert.Core.Mathematics.Matrices;
-using Revert.Core.Mathematics.Vectors;
+using Revert.Port.LibGDX.Mathematics.Interpolations;
+using Revert.Port.LibGDX.Mathematics.Vectors;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Numerics;
-using System.Text;
 
 namespace Revert.Core.Mathematics
 {
@@ -17,23 +12,20 @@ namespace Revert.Core.Mathematics
         private static DateTimeOffset dto = new DateTimeOffset(DateTime.Now);
         private static int seed = (int)(dto.ToUnixTimeMilliseconds() ^ (dto.ToUnixTimeMilliseconds() << 32));
         public static Random random = new Random(seed);
-        private static float sqrt2;
-        //public static Maths Instance = new Maths();
+        private static float sqrt2 = (float)Math.Sqrt(2);
         public static float FLOAT_ROUNDING_ERROR = 0.000001f; // 32 bits
         public static float PI2 = (float)(Math.PI * 2f);
-
-        private Maths()
-        {
-            sqrt2 = (float)Math.Sqrt(2);
-        }
-
         public static float radiansToDegrees = (float)(180f / Math.PI);
-
         public static float degreesToRadians = 1f / radiansToDegrees; // (float)(180f / Math.PI);
 
         public static bool isEqual(float a, float b)
         {
             return Math.Abs(a - b) <= FLOAT_ROUNDING_ERROR;
+        }
+
+        public static bool isEqual(float a, float b, float tolerance)
+        {
+            return Math.Abs(a - b) <= tolerance;
         }
 
         /** Returns true if the value is zero (using the default tolerance as upper bound) */
@@ -476,6 +468,41 @@ namespace Revert.Core.Mathematics
             return newArray;
         }
 
+
+        public static short clamp(short value, short min, short max)
+        {
+            if (value < min) return min;
+            if (value > max) return max;
+            return value;
+        }
+
+        public static int clamp(int value, int min, int max)
+        {
+            if (value < min) return min;
+            if (value > max) return max;
+            return value;
+        }
+
+        public static long clamp(long value, long min, long max)
+        {
+            if (value < min) return min;
+            if (value > max) return max;
+            return value;
+        }
+
+        public static float clamp(float value, float min, float max)
+        {
+            if (value < min) return min;
+            if (value > max) return max;
+            return value;
+        }
+
+        public static double clamp(double value, double min, double max)
+        {
+            if (value < min) return min;
+            if (value > max) return max;
+            return value;
+        }
 
     }
 }

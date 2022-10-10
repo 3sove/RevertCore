@@ -1,12 +1,9 @@
-﻿using Revert.Core.Mathematics.Vectors;
-using System;
-using System.Collections.Generic;
-using System.Numerics;
-using System.Text;
+﻿using Revert.Core.Common.Factories;
+using Revert.Port.LibGDX.Mathematics.Vectors;
 
-namespace Revert.Core.Mathematics.Factories
+namespace Revert.Port.LibGDX.Mathematics.Factories
 {
-    public class Vec2Factory : Common.Factories.Factory<Vector2, Vec2Factory>
+    public class Vec2Factory : Factory<Vector2, Vec2Factory>
     {
         protected override int initialCapacity { get => 500000; }
 
@@ -17,7 +14,7 @@ namespace Revert.Core.Mathematics.Factories
 
         public Vector2 get(float x = 0f, float y = 0f)
         {
-            var point = this.get();
+            var point = get();
             point.x = x;
             point.y = y;
             return point;
@@ -25,7 +22,7 @@ namespace Revert.Core.Mathematics.Factories
 
         public Vector2 get(Vector2 vector)
         {
-            var point = this.get();
+            var point = get();
             point.x = vector.x;
             point.y = vector.y;
             return point;

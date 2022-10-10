@@ -1,7 +1,5 @@
 ﻿using Revert.Core.Mathematics.Matrices;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Revert.Core.Mathematics
 {

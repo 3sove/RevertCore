@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Text;
-
-namespace Revert.Core.Mathematics.Interpolations
+﻿namespace Revert.Port.LibGDX.Mathematics.Interpolations
 {
     /// <summary>
     /// Converted from badlogic's LibGdx interpolation class in Java

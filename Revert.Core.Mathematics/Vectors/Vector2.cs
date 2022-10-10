@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Revert.Core.Mathematics.Interpolations;
+using Revert.Core.Mathematics;
+using Revert.Port.LibGDX.Mathematics.Interpolations;
 
-namespace Revert.Core.Mathematics.Vectors
+namespace Revert.Port.LibGDX.Mathematics.Vectors
 {
     public class Vector2 : IVector<Vector2>
     {
@@ -295,7 +294,7 @@ namespace Revert.Core.Mathematics.Vectors
         public Vector2 setLength2(float len2)
         {
             float oldLen2 = this.len2();
-            return (oldLen2 == 0 || oldLen2 == len2) ? this : scl((float)Math.Sqrt(len2 / oldLen2));
+            return oldLen2 == 0 || oldLen2 == len2 ? this : scl((float)Math.Sqrt(len2 / oldLen2));
         }
 
         public Vector2 clamp(float min, float max)
@@ -367,8 +366,8 @@ namespace Revert.Core.Mathematics.Vectors
         public Vector2 lerp(Vector2 target, float alpha)
         {
             float invAlpha = 1.0f - alpha;
-            x = (x * invAlpha) + (target.x * alpha);
-            y = (y * invAlpha) + (target.y * alpha);
+            x = x * invAlpha + target.x * alpha;
+            y = y * invAlpha + target.y * alpha;
             return this;
         }
 

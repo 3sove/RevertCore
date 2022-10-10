@@ -1,4 +1,4 @@
-﻿namespace Revert.Core.Mathematics.Interpolations
+﻿namespace Revert.Port.LibGDX.Mathematics.Interpolations
 {
     public class Swing : Interpolation
     {

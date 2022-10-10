@@ -1,9 +1,9 @@
-﻿using Revert.Core.Mathematics.Interpolations;
+﻿using Revert.Port.LibGDX.Mathematics.Interpolations;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Revert.Core.Mathematics.Vectors
+namespace Revert.Port.LibGDX.Mathematics.Vectors
 {
     public interface IVector<T> where T : IVector<T>
     {
