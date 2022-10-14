@@ -1,5 +1,8 @@
-﻿namespace Revert.Core.IO.Serialization.Twitter.Models.JsonSerializationModels
+﻿using System;
+
+namespace Revert.Core.IO.Serialization.Twitter.Models.JsonSerializationModels
 {
+    [Serializable]
     public class actorLocation : CsvSerializationModel<location>
     {
         public string objectType { get; set; }

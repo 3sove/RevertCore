@@ -16,7 +16,6 @@ using Revert.Core.Graph.Vertices;
 using Revert.Core.Indexing;
 using Revert.Core.Search;
 using Revert.Core.Text.Tokenization;
-using ProtoBuf;
 using Revert.Core.Common.Types;
 using Revert.Core.Graph.MetaData.DataPoints;
 using Revert.Core.IO;
@@ -403,8 +402,8 @@ namespace Revert.Core.Graph
         {
             if (property.Name == "SyncRoot") return false;
             if (property.PropertyType == typeof(Type) || property.PropertyType.FullName.StartsWith("System.Reflection")) return false;
-            //Ignore XmlIgnore and ProtoIgnore items
-            if (property.GetCustomAttributes(false).Any(attribute => attribute is XmlIgnoreAttribute || attribute is ProtoIgnoreAttribute)) return false;
+            //Ignore XmlIgnore items
+            if (property.GetCustomAttributes(false).Any(attribute => attribute is XmlIgnoreAttribute)) return false;
 
             var type = property.PropertyType;
 

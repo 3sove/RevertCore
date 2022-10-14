@@ -8,7 +8,6 @@ using ProtoBuf;
 
 namespace Revert.Core.Text.Extraction
 {
-    //[ProtoContract(ImplicitFields = ImplicitFields.AllPublic), ProtoInclude(99, typeof(DocumentInfo))]
     public class TrainingSetItem
     {
         public virtual List<string> Tags { get; set; }

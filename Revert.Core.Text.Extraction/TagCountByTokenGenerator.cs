@@ -3,12 +3,9 @@ using Revert.Core.Common.Modules;
 using Revert.Core.Common.Performance;
 using Revert.Core.Extensions;
 using Revert.Core.Text.Tokenization;
-using ProtoBuf;
-using Revert.Core.Mathematics;
 
 namespace Revert.Core.Text.Extraction
 {
-    //[ProtoContract(ImplicitFields = ImplicitFields.AllPublic)]
     public class TagCountByTokenGeneratorModel : ModuleModel
     {
         public TagMap TagMap { get; set; }

@@ -5,7 +5,6 @@ using Revert.Core.Mathematics.Extensions;
 
 namespace Revert.Core.Text.Extraction
 {
-    //[ProtoContract(ImplicitFields = ImplicitFields.AllPublic)]
     public class TagMap
     {
         public Dictionary<string, Dictionary<string, int>> CountByTagByTokenMatrix { get; set; }

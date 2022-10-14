@@ -1,31 +1,23 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.Serialization;
 using MongoDB.Bson;
-using Revert.Core.Common;
-using Revert.Core.Extensions;
 using Revert.Core.Graph.Edges;
 using Revert.Core.Graph.MetaData;
-using ProtoBuf;
 
 namespace Revert.Core.Graph.Vertices
 {
     [DataContract]
-    //[ProtoContract(ImplicitFields = ImplicitFields.None)]
-    [ProtoInclude((int)ProtobufIds.IncludeEntity, typeof(Entity))]
     public class Vertex : IVertex
     {
         [DataMember]
         public ObjectId Id { get; set; } = ObjectId.GenerateNewId();
 
         [DataMember]
-        //[ProtoMember((int)ProtobufIds.MemberFeatures)]
         public Features Features { get; set; } = new Features();
 
         public float BetweennessCentrality { get; set; } = 1f;
 
         [DataMember]
-        //[ProtoMember((int) ProtobufIds.MemberName)]
         public string Name
         {
             get => !string.IsNullOrWhiteSpace(_name) ? _name : Features.Name;
@@ -34,7 +26,6 @@ namespace Revert.Core.Graph.Vertices
 
         private HashSet<Edge> edges;
         [DataMember]
-        //[ProtoMember((int)ProtobufIds.MemberVertexEdges)]
         public HashSet<Edge> Edges
         {
             get => edges ?? (edges = new HashSet<Edge>());
@@ -45,7 +36,6 @@ namespace Revert.Core.Graph.Vertices
         private string _name;
 
         [DataMember]
-        //[ProtoMember((int)ProtobufIds.MemberVertexNeighborhoodIds)]
         public HashSet<ObjectId> CliqueIds
         {
             get => cliqueIds ?? (cliqueIds = new HashSet<ObjectId>());

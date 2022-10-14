@@ -1,8 +1,5 @@
-﻿using ProtoBuf;
-
-namespace Revert.Core.IO
+﻿namespace Revert.Core.IO
 {
-    //[ProtoContract(ImplicitFields = ImplicitFields.AllPublic)]
     public interface ITextDocument
     {
         string Name { get; }

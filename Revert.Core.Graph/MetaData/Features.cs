@@ -6,12 +6,10 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using MongoDB.Bson;
-using Revert.Core.Common;
 using Revert.Core.Extensions;
 using Revert.Core.Graph.Vertices;
 using Revert.Core.MachineLearning;
 using Revert.Core.Text.Tokenization;
-using ProtoBuf;
 using Revert.Core.Mathematics.Extensions;
 using Revert.Core.Graph.MetaData.DataPoints;
 using Revert.Core.IO;
@@ -21,7 +19,6 @@ namespace Revert.Core.Graph.MetaData
 
     [DataContract(IsReference = true)]
     [DebuggerDisplay("{GetFeaturesDebuggerDisplay(),nq}")]
-    //[ProtoContract(ImplicitFields = ImplicitFields.None)]
     public class Features<TVertex> : Features where TVertex : class, IVertex, IMongoRecord, new()
     {
 
@@ -41,58 +38,46 @@ namespace Revert.Core.Graph.MetaData
     public class Features
     {
         [DataMember]
-        //[ProtoMember((int)ProtobufIds.EntityType)]
         public string EntityType { get; set; }
 
         private static readonly HashSet<string> blackListedEntityTypes = new HashSet<string>(StringComparer.InvariantCultureIgnoreCase);
 
         [IgnoreDataMember]
-        [ProtoIgnore]
         public bool IncludeInRollup => !blackListedEntityTypes.Contains(EntityType);
 
 
         [DataMember]
         [DebuggerDisplay("{GetDateDataDebuggerDisplay(),nq}")]
-        //[ProtoMember((int)ProtobufIds.MemberDateData)]
         public HashSet<DateDataPoint> DateData { get; set; } = new HashSet<DateDataPoint>();
 
         [DataMember]
         [DebuggerDisplay("{GetBooleanDataDebuggerDisplay(),nq}")]
-        //[ProtoMember((int)ProtobufIds.MemberBooleanData)]
         public HashSet<BooleanDataPoint> BooleanData { get; set; } = new HashSet<BooleanDataPoint>();
 
         [DataMember]
         [DebuggerDisplay("{GetTextDataDebuggerDisplay(),nq}")]
-        //[ProtoMember((int)ProtobufIds.MemberTextData)]
         public HashSet<TextDataPoint> TextData { get; set; } = new HashSet<TextDataPoint>();
 
         [DataMember]
         [DebuggerDisplay("{GetBinaryDebuggerDisplay(),nq}")]
-        //[ProtoMember((int)ProtobufIds.FeaturesBinaryData)]
         public HashSet<BinaryDataPoint> BinaryData { get; set; } = new HashSet<BinaryDataPoint>();
 
         [DataMember]
-        //[ProtoMember((int)ProtobufIds.MemberDiscreteData)]
         public HashSet<DiscreteDataPoint> DiscreteData { get; set; } = new HashSet<DiscreteDataPoint>();
 
         [DataMember]
-        //[ProtoMember((int)ProtobufIds.MemberContinuousData)]
         public HashSet<ContinuousDataPoint> ContinuousData { get; set; } = new HashSet<ContinuousDataPoint>();
 
         [DataMember]
-        //[ProtoMember((int)ProtobufIds.MemberContinuousTimeSeriesData)]
         public HashSet<ContinuousTimeSeriesDataPoint> ContinuousTimeSeriesData { get; set; } = new HashSet<ContinuousTimeSeriesDataPoint>();
 
         [DataMember]
-        //[ProtoMember((int)ProtobufIds.MemberDiscreteTimeSeriesData)]
         public HashSet<DiscreteTimeSeriesDataPoint> DiscreteTimeSeriesData { get; set; } = new HashSet<DiscreteTimeSeriesDataPoint>();
 
         [DataMember]
-        //[ProtoMember((int)ProtobufIds.TextTimeSeriesData)]
         public HashSet<TextTimeSeriesDataPoint> TextTimeSeriesData { get; set; } = new HashSet<TextTimeSeriesDataPoint>();
 
         [DataMember]
-        [ProtoIgnore]
         public string Name
         {
             get { return TextData.FirstOrDefault(t => t.Key == "Name")?.Value ?? string.Empty; }
@@ -100,7 +85,6 @@ namespace Revert.Core.Graph.MetaData
         }
 
         [DataMember]
-        [ProtoIgnore]
         public DateTime LastUpdated
         {
             get

@@ -1,22 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Runtime.Serialization;
-using System.Text;
-using Revert.Core.Common;
 using Revert.Core.Extensions;
 using Revert.Core.Graph.MetaData;
 using Revert.Core.IO;
-using ProtoBuf;
 using Revert.Core.Graph.MetaData.DataPoints;
 
 namespace Revert.Core.Graph.Vertices
 {
     [DataContract]
     [DebuggerDisplay("{GetEntityDebuggerDisplay(),nq}")]
-    //[ProtoContract(ImplicitFields = ImplicitFields.None)]
     public class DocumentEntity : Entity
     {
         public DocumentEntity()

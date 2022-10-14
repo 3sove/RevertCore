@@ -8,7 +8,6 @@ using ProtoBuf;
 
 namespace Revert.Core.Text.Extraction
 {
-    //[ProtoContract(ImplicitFields = ImplicitFields.AllPublic)]
     public class TagMapModel : ModuleModel
     {
         public TagMapModel()

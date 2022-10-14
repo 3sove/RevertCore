@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
-using System.Text;
-using ProtoBuf;
 using Revert.Core.Graph.MetaData.DataPoints;
 using Revert.Core.Graph.Vertices;
 using Revert.Core.Text.Tokenization;
@@ -13,15 +11,12 @@ namespace Revert.Core.Graph.MetaData
     public class DocumentFeatures : Features
     {
         [DataMember]
-        [ProtoIgnore]
         public byte[] FileHash
         {
             get { return BinaryData.FirstOrDefault(t => t.Key == "File Hash")?.Value; }
             set { BinaryData.Add(new BinaryDataPoint("File Hash", value)); }
         }
 
-
-        [ProtoIgnore]
         public string FilePath
         {
             get { return TextData.FirstOrDefault(t => t.Key == "File Path")?.Value; }
@@ -42,8 +37,5 @@ namespace Revert.Core.Graph.MetaData
 
             return base.CalculateFeatureSimilarity(entity1, entity2, tokenIndex, stopList);
         }
-
-
-
     }
 }

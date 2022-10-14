@@ -6,7 +6,6 @@ using ProtoBuf;
 
 namespace Revert.Core.Indexing
 {
-    //[ProtoContract(ImplicitFields = ImplicitFields.AllPublic)]
     public class ProtobufGraphIndex<TValue> : ProtobufGraphIndex<int, TValue> where TValue : IProtobufGraphEntity<int>
     {
         public ProtobufGraphIndex(string filePath)
@@ -21,13 +20,11 @@ namespace Revert.Core.Indexing
         }
     }
 
-    //[ProtoContract(ImplicitFields = ImplicitFields.AllPublic)]
     public interface IProtobufGraphEntity<TKey>
     {
         TKey Id { get; set; }
     }
 
-    //[ProtoContract(ImplicitFields = ImplicitFields.AllPublic)]
     public class ProtobufGraphIndex<TKey, TValue> : ProtobufGraphIndex
     {
         public ProtobufGraphIndex(string filePath)

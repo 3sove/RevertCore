@@ -1,41 +1,30 @@
 ﻿using System;
 using MongoDB.Bson;
-using ProtoBuf;
-using Revert.Core.Common;
 using Revert.Core.Common.Text;
 using Revert.Core.IO;
 using Revert.Core.Text.NLP;
 
 namespace Revert.Core.Text.Tokenization
 {
-    //[ProtoContract(ImplicitFields = ImplicitFields.None)]
     public class Token : IMongoRecord
     {
         public Token(bool getNewId = false)
         {
-
-
             //Synonyms = new HashSet<int>();
             //RelatedWords = new Dictionary<WordNetEngine.SynSetRelation, List<int>>();
         }
 
-        //[ProtoMember((int)ProtobufIds.MemberTokenId)]
         public ObjectId Id { get; set; }
 
-        //[ProtoMember((int)ProtobufIds.MemberTokenValue)]
         public string Value { get; set; }
 
-        //[ProtoMember((int)ProtobufIds.MemberTokenPartOfSpeech)]
         public PartsOfSpeech PartOfSpeech { get; set; }
 
 
-        ////[ProtoMember((int)ProtobufIds.MemberTokenDefinition)]
         //public string Definition { get; set; }
 
-        ////[ProtoMember((int)ProtobufIds.MemberTokenSynonyms)]
         //public HashSet<int> Synonyms { get; set; }
 
-        ////[ProtoMember((int)ProtobufIds.MemberTokenRelatedWords)]
         //public Dictionary<WordNetEngine.SynSetRelation, List<int>> RelatedWords { get; set; }
 
         public bool IsMeaningful

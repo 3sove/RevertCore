@@ -2,14 +2,10 @@
 using MongoDB.Bson;
 using Revert.Core.Graph.Edges;
 using Revert.Core.Graph.MetaData;
-using ProtoBuf;
 using Revert.Core.IO;
 
 namespace Revert.Core.Graph.Vertices
 {
-    //[ProtoContract(ImplicitFields = ImplicitFields.None)]
-    //[ProtoInclude((int)ProtobufIds.IncludeVertex, typeof(Vertex))]
-    //[ProtoInclude((int)ProtobufIds.IncludeEntity, typeof(Entity))]
     public interface IVertex : IMongoRecord
     {
         //ulong Id { get; set; }

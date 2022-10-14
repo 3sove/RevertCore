@@ -9,8 +9,6 @@ namespace Revert.Core.GuitarProReader
     /// </summary>
     public class TabFactory
     {
-
-
         public static TabFile CreateFromGp(Stream stream)
         {
             var file = new TabFile();

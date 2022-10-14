@@ -1,11 +1,9 @@
 ﻿using System;
 using System.IO;
 using Revert.Core.Extensions;
-using ProtoBuf;
 
 namespace Revert.Core.IO
 {
-    //[ProtoContract(ImplicitFields = ImplicitFields.AllPublic)]
     public class TextDocument : ITextDocument
     {
         public TextDocument()

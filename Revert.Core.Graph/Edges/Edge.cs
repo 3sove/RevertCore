@@ -1,12 +1,9 @@
 ﻿using System.Runtime.Serialization;
 using MongoDB.Bson;
-using Revert.Core.Common;
-using ProtoBuf;
 
 namespace Revert.Core.Graph.Edges
 {
     [DataContract]
-    //[ProtoContract(ImplicitFields = ImplicitFields.None)]
     public class Edge : IEdge
     {
         public Edge()
@@ -32,7 +29,6 @@ namespace Revert.Core.Graph.Edges
 
         private ObjectId id = ObjectId.Empty;
         [DataMember]
-        //[ProtoMember((int) ProtobufIds.Id)]
         public ObjectId Id
         {
             get => id == ObjectId.Empty ? id = ObjectId.GenerateNewId() : id;
@@ -48,11 +44,9 @@ namespace Revert.Core.Graph.Edges
 
 
         [DataMember]
-        //[ProtoMember((int)ProtobufIds.EdgeWeight)]
         public float Weight { get; set; }
 
         [DataMember]
-        //[ProtoMember((int)ProtobufIds.EdgeDetails)]
         public string Details { get; set; }
 
         public override int GetHashCode()

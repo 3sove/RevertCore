@@ -1,5 +1,4 @@
 ﻿using MongoDB.Bson.Serialization.Attributes;
-using ProtoBuf;
 using Revert.Core.Extensions;
 using Revert.Core.Graph.MetaData;
 using System;
@@ -12,7 +11,6 @@ namespace Revert.Core.Graph.Vertices
 {
     [DataContract]
     [DebuggerDisplay("{GetEntityDebuggerDisplay(),nq}")]
-    //[ProtoContract(ImplicitFields = ImplicitFields.None)]
     public class Entity : Vertex
     {
         public Entity()
@@ -25,12 +23,10 @@ namespace Revert.Core.Graph.Vertices
         }
 
         [DataMember]
-        //[ProtoMember((int)ProtobufIds.EntityWeight)]
         public float Weight { get; set; } = 1f;
 
         private float manualNeighborhoodStrength = 0f;
         [DataMember]
-        //[ProtoMember((int)ProtobufIds.NeighborhoodStrength)]
         public float NeighborhoodStrength
         {
             get
@@ -45,7 +41,6 @@ namespace Revert.Core.Graph.Vertices
         }
         
         [IgnoreDataMember]
-        [ProtoIgnore]
         public string EntityType
         {
             get { return Features.TextData.FirstOrDefault(item => item.Key == "Type")?.Value ?? string.Empty; }
@@ -87,14 +82,12 @@ namespace Revert.Core.Graph.Vertices
         }
 
         [IgnoreDataMember]
-        [ProtoIgnore]
         [BsonIgnore]
         public bool IncludeInSearchResults => Features.IncludeInRollup;
 
         private string toolTip = string.Empty;
 
         [IgnoreDataMember]
-        [ProtoIgnore]
         [BsonIgnore]
         public string ToolTip
         {

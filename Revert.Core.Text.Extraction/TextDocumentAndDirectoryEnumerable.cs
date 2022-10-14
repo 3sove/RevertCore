@@ -2,11 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using Revert.Core.IO;
-using ProtoBuf;
 
 namespace Revert.Core.Text.Extraction.TextDocumentAndDirectory
 {
-    //[ProtoContract(ImplicitFields = ImplicitFields.AllPublic)]
     public class TextDocumentAndDirectoryEnumerable : DocumentEnumerable<DocumentInfo>
     {
         public int Count
