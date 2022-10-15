@@ -5,7 +5,6 @@ namespace Revert.Core.IO
 {
     public class DocumentCrawlerEnumerator : DocumentEnumerator<TextDocument>
     {
-
         public DocumentCrawlerEnumerator(string folderPath, string fileFilter, Action<string> messageOutputAction, bool includeSubfolders = true, ITextDocumentParser documentParser = null) :
             base(folderPath, fileFilter, messageOutputAction, includeSubfolders, documentParser)
         {

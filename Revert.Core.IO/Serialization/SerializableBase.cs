@@ -7,7 +7,6 @@ using Revert.Core.Extensions;
 
 namespace Revert.Core.IO.Serialization
 {
-
     public abstract class SerializableBase<T> where T : SerializableBase<T>, new()
     {
         private static readonly T Instance = new T();

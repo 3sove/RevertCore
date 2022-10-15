@@ -13,9 +13,9 @@ namespace Revert.Core.Text.Extraction.Gazetteer
         public string FilePathToMatch { get; set; }
     }
 
-    public class GazetteerMatcher //: FunctionalModule<GazetteerMatcher, GazetteerMatcherModule>
+    public class GazetteerMatcher
     {
-        protected void Execute(GazetteerMatcherModule model)
+        public void Execute(GazetteerMatcherModule model)
         {
             var sw = new System.Diagnostics.Stopwatch();
             sw.Start();

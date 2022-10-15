@@ -11,14 +11,11 @@ namespace Revert.Testing.TestConsole
         public string From { get; set; }
         public string To { get; set; }
         public string Cc { get; set; }
-
         public string Bcc { get; set; }
         public string Text { get; set; }
         public DateTime Sent { get; set; }
         public DateTime Received { get; set; }
-
         public List<EmailAttachment> Attachments { get; set; } = new List<EmailAttachment>();
-
         public string FileName { get; set; }
     }
 

@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using System.Net;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Revert.Core.IO.Files
 {
-
     public class FtpDownloadModel
     {
         public FtpDownloadModel(string uri, string saveAsFilePath)
@@ -21,13 +17,10 @@ namespace Revert.Core.IO.Files
         public float downloadProgress { get; set; }
     }
 
-
     public static class FtpDownloader
     {
-
         public static async Task<FileInfo> GetFileStreamAsync(FtpDownloadModel details)
         {
-
             await Task.Run(() => {
                 FtpWebRequest sizeRequest = (FtpWebRequest)WebRequest.Create(details.uri);
                 sizeRequest.Method = WebRequestMethods.Ftp.GetFileSize;
@@ -54,10 +47,5 @@ namespace Revert.Core.IO.Files
             var fileInfo = new FileInfo(details.saveAsFilePath);
             return fileInfo;
         }
-
-
-
-
-
     }
 }

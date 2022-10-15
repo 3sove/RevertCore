@@ -2,14 +2,20 @@
 using System.IO;
 using System.Linq;
 using System.Text;
-using Revert.Core.Common.Modules;
 using Revert.Core.Extensions;
 
 namespace Revert.Core.IO.Files
 {
-    public class LargeFileSplitter : FunctionalModule<LargeFileSplitter, LargeFileSplitterModel>
+    public class LargeFileSplitter
     {
-        protected override void Execute()
+        public LargeFileSplitterModel Model { get; }
+
+        public LargeFileSplitter(LargeFileSplitterModel model)
+        {
+            Model = model;
+        }
+
+        protected void Execute()
         {
             foreach (var fileName in Model.FileNames)
             {
@@ -46,7 +52,7 @@ namespace Revert.Core.IO.Files
                     smallSamplePath.CreateDirectory();
 
                 var targetFileName = $"{smallSamplePath.AddFilePath(file.Name)}.txt";
-                using (var writer = System.IO.File.OpenWrite(targetFileName))
+                using (var writer = File.OpenWrite(targetFileName))
                 {
                     writer.Write(fileBytes, 0, fileBytes.Length);
                     writer.Flush();
@@ -93,7 +99,7 @@ namespace Revert.Core.IO.Files
 
         public void WriteFile(string fileName, string text)
         {
-            using (var writer = System.IO.File.Exists(fileName) ? System.IO.File.AppendText(fileName) : System.IO.File.CreateText(fileName))
+            using (var writer = File.Exists(fileName) ? File.AppendText(fileName) : File.CreateText(fileName))
             {
                 writer.Write(text);
                 writer.Flush();

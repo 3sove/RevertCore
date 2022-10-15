@@ -46,16 +46,13 @@ namespace Revert.Core.Text.Extraction.Gazetteer
             }
         }
 
-        private Dictionary<string, List<List<string>>> keywordsAndSynonymsByFileName = new Dictionary<string, List<List<string>>>();
-
-        public Dictionary<string, List<List<string>>> KeywordsAndSynonymsByFileName { get { return keywordsAndSynonymsByFileName; } set { keywordsAndSynonymsByFileName = value; } }
+        public Dictionary<string, List<List<string>>> KeywordsAndSynonymsByFileName { get; set; } = new Dictionary<string, List<List<string>>>();
     }
 
-    public class GazetteerGenerator //: FunctionalModule<GazetteerGenerator, GazetteerGeneratorModel>
+    public class GazetteerGenerator
     {
-        protected void Execute(GazetteerGeneratorModel model)
+        public void Execute(GazetteerGeneratorModel model)
         {
-
             var directorySearchModel = DirectorySearcher.Search(
                 new DirectorySearcherModel
                 {
@@ -66,7 +63,7 @@ namespace Revert.Core.Text.Extraction.Gazetteer
 
             foreach (var file in directorySearchModel.Files)
             {
-                model.UpdateMessageAction(string.Format("Evaluating {0}.", file.Name));
+                model.UpdateMessageAction($"Evaluating {file.Name}.");
                 var gazetteeerFileReader = new GazetteerFileReader();
                 var fileReaderModel = new GazetteerFileReaderModel { File = file };
                 gazetteeerFileReader.Execute(fileReaderModel);
