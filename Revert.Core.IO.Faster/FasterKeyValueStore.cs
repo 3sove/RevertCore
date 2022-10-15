@@ -39,8 +39,9 @@ namespace Revert.Core.IO.Stores
 
             var checkpointSettings = new CheckpointSettings
             {
-                CheckpointDir = directory,
-                CheckPointType = CheckpointType.FoldOver
+                
+                CheckpointDir = directory
+                //CheckPointType = CheckpointType.FoldOver
             };
 
             Store = new FasterKV<TKey, TValue>(1L << 20, logSettings, serializerSettings: SerializerSettings, checkpointSettings: checkpointSettings);
@@ -79,9 +80,7 @@ namespace Revert.Core.IO.Stores
             using (var session = GetSession())
             {
                 var status = session.Upsert(key, value);
-                if (status == Status.PENDING)
-                    session.CompletePending(true, true);
-
+                if (status.IsPending) session.CompletePending(true, true);
             }
 
             //Store.Log.Flush(true);
@@ -94,9 +93,9 @@ namespace Revert.Core.IO.Stores
                 foreach (var item in itemsToAdd)
                 {
                     var upsertResult = session.Upsert(item.KeyOne, item.KeyTwo);
-                    if (upsertResult == Status.ERROR) throw new Exception("Couldn't upsert item.");
+                    if (!upsertResult.IsCompleted) throw new Exception("Couldn't upsert item.");
 
-                    if (upsertResult == Status.PENDING)
+                    if (upsertResult.IsPending)
                         session.CompletePending(true, true);
                 }
             }
@@ -107,10 +106,7 @@ namespace Revert.Core.IO.Stores
             using (var session = GetSession())
             {
                 session.CompletePending(true, true);
-
-                Store.TakeHybridLogCheckpoint(out var token, CheckpointType.FoldOver);
-
-                //session.WaitForCommitAsync().GetAwaiter().GetResult();
+                Store.TakeHybridLogCheckpointAsync(CheckpointType.FoldOver);
             }
             ClearSession();
         }
@@ -122,7 +118,7 @@ namespace Revert.Core.IO.Stores
             {
                 var readResult = session.Read(key);
                 value = readResult.Item2;
-                return readResult.Item1 == Status.OK;
+                return readResult.Item1.IsCompletedSuccessfully;
             }
         }
 
@@ -134,7 +130,7 @@ namespace Revert.Core.IO.Stores
 
                 session.CompletePending(true);
                 Store.Log.FlushAndEvict(true);
-                return deleteStatus == Status.OK;
+                return deleteStatus.IsCompletedSuccessfully;
             }
             //TODO: Verify this status code is correct for FASTER Deletes
         }
@@ -147,7 +143,7 @@ namespace Revert.Core.IO.Stores
 
                 session.CompletePending(true);
                 Store.Log.FlushAndEvict(true);
-                return deleteStatus == Status.OK;
+                return deleteStatus.IsCompletedSuccessfully;
             }
             //TODO: Verify this status code is correct for FASTER Deletes
         }
@@ -159,9 +155,9 @@ namespace Revert.Core.IO.Stores
             using (var session = GetSession())
             {
                 var readResults = session.Read(key);
-                if (readResults.Item1 == Status.OK)
+                if (readResults.Item1.IsCompletedSuccessfully)
                     return readResults.Item2;
-                return default(TValue);
+                return default;
             }
         }
 

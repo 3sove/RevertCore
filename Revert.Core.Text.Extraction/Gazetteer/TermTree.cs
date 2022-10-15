@@ -30,7 +30,7 @@ namespace Revert.Core.Text.Extraction.Gazetteer
             get { return rootNode; }
             set { rootNode = value; }
         }
-
+        
         public TermTreeModel Model { get; private set; }
 
         public TermTree(TermTreeModel model)

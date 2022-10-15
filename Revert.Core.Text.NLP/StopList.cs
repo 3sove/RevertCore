@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using Revert.Core.Extensions;
+using System.Linq;
 
 namespace Revert.Core.Text.NLP
 {

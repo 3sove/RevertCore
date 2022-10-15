@@ -29,6 +29,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Revert.Core.Mathematics", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{959B3491-715F-4C15-9076-D0D448055024}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Revert.Core.Faster", "Revert.Core.IO.Faster\Revert.Core.Faster.csproj", "{A81D30A6-2EFF-42BC-9BFE-EF0BBFD6C4A5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -133,6 +135,14 @@ Global
 		{A134D056-45A5-43B1-9172-FFCE55E26EE2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A134D056-45A5-43B1-9172-FFCE55E26EE2}.Release|x64.ActiveCfg = Release|Any CPU
 		{A134D056-45A5-43B1-9172-FFCE55E26EE2}.Release|x64.Build.0 = Release|Any CPU
+		{A81D30A6-2EFF-42BC-9BFE-EF0BBFD6C4A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A81D30A6-2EFF-42BC-9BFE-EF0BBFD6C4A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A81D30A6-2EFF-42BC-9BFE-EF0BBFD6C4A5}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A81D30A6-2EFF-42BC-9BFE-EF0BBFD6C4A5}.Debug|x64.Build.0 = Debug|Any CPU
+		{A81D30A6-2EFF-42BC-9BFE-EF0BBFD6C4A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A81D30A6-2EFF-42BC-9BFE-EF0BBFD6C4A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A81D30A6-2EFF-42BC-9BFE-EF0BBFD6C4A5}.Release|x64.ActiveCfg = Release|Any CPU
+		{A81D30A6-2EFF-42BC-9BFE-EF0BBFD6C4A5}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
