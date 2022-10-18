@@ -20,7 +20,7 @@ namespace Revert.Core.Indexing
             CollectionName = collectionName;
             ValueSerializer = valueSerializer ?? new ProtobufSerializer<T>();
         }
-
+        
         public ISerializer<T> ValueSerializer { get; set; }
         public string CollectionName { get; set; }
         public string ConnectionString { get; }

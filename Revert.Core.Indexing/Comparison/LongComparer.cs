@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Revert.Core.Indexing
+namespace Revert.Core.Indexing.Comparison
 {
     public class LongComparer : IComparer<long>
     {

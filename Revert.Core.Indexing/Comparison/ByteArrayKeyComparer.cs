@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Numerics;
 
-namespace Revert.Core.Indexing
+namespace Revert.Core.Indexing.Comparison
 {
     public class ByteArrayKeyComparer : IComparer<byte[]>
     {

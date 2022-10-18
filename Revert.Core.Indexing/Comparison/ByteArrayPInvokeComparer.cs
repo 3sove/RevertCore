@@ -1,6 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 
-namespace Revert.Core.Indexing
+namespace Revert.Core.Indexing.Comparison
 {
     public static class ByteArrayPInvokeComparer
     {
