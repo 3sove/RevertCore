@@ -6,7 +6,7 @@ using Revert.Core.IO.Files;
 
 namespace Revert.Core.Text.Extraction.Gazetteer
 {
-    public class GazetteerMatcherModule // : ModuleModel
+    public class GazetteerMatcherModule
     {
         public GazetteerGeneratorModel GazetteerGeneratorModel { get; set; }
         public Dictionary<string, int> HitsByTerm { get; set; }

@@ -213,7 +213,6 @@ namespace Revert.Core.Graph
             //VerticesByTokenId.Upsert();
         }
 
-
         private void UpsertSearchTokens(TVertex vertex)
         {
             var newTokensWithCount = vertex.Features.GetSearchableTokensWithCount(TokenIndex, StopList);

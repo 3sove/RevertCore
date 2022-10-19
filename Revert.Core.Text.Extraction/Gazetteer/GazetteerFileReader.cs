@@ -17,7 +17,7 @@ namespace Revert.Core.Text.Extraction.Gazetteer
         public System.IO.FileInfo File { get; set; }
     }
 
-    public class GazetteerFileReader //: FunctionalModule<GazetteerFileReader, GazetteerFileReaderModel>
+    public class GazetteerFileReader
     {
         public void Execute(GazetteerFileReaderModel model, int linesPerUpdate = 1000)
         {

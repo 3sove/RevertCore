@@ -1,27 +1,33 @@
-﻿using System.Collections.Concurrent;
+﻿using System;
+using System.Collections.Concurrent;
 using Revert.Core.Common.Modules;
 
 namespace Revert.Core.IO.Files
 {
-    public class LineCounter : FunctionalModule<LineCounter, LineCounterModel>
+    public class LineCounter 
     {
-        public int LineCount;
-        public ConcurrentDictionary<string, int> CountByTerm = new ConcurrentDictionary<string, int>();
-
+        private int lineCount;
         public const int OutputDelayLineCount = 10000;
+        public LineCounterModel Model { get; private set; } = new LineCounterModel();
 
-        protected override void Execute()
+        public LineCounter(string filePath)
+        {
+            Model.FilePath = filePath;
+        }
+
+        protected int Execute()
         {
             using (var textReader = System.IO.File.OpenText(Model.FilePath))
             {
                 while (textReader.ReadLine() != null)
                 {
-                    LineCount++;
-                    if (LineCount % OutputDelayLineCount == 1) PublishUpdateMessage(Model, "Read {0} lines so far.", LineCount);
+                    lineCount++;
+                    if (lineCount % OutputDelayLineCount == 1) Console.WriteLine("Read {0} lines so far.", lineCount);
                 }
             }
 
-            Model.LineCount = LineCount;
+            Model.LineCount = lineCount;
+            return lineCount;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Revert.Core.Common.Modules;
 using Revert.Core.Common.Performance;
 using Revert.Core.Extensions;
@@ -6,11 +7,11 @@ using Revert.Core.Text.Tokenization;
 
 namespace Revert.Core.Text.Extraction
 {
-    public class TagCountByTokenGeneratorModel : ModuleModel
+    public class TagCountByTokenGeneratorModel// : ModuleModel
     {
         public TagMap TagMap { get; set; }
         public IEnumerable<TrainingSetItem> TrainingSetItems { get; set; }
-        public int TotalRecordsToParse { get; set; } = int.MaxValue;
+        public int MaximumRecordsToParse { get; set; } = int.MaxValue;
 
         private ITokenizer tokenizer;
         public ITokenizer Tokenizer
@@ -22,16 +23,18 @@ namespace Revert.Core.Text.Extraction
         public string DirectoryPath { get; set; }
     }
 
-    public class TagCountByTokenGenerator : FunctionalModule<TagCountByTokenGenerator, TagCountByTokenGeneratorModel>
+    public class TagCountByTokenGenerator
     {
-        protected override void Execute()
+        public TagCountByTokenGeneratorModel Model { get; set; } 
+
+        public void Execute()
         {
             var countByToken = new Dictionary<string, int>();
             var countByTagByToken = new Dictionary<string, Dictionary<string, int>>();
 
             var recordCountByTag = new Dictionary<string, int>();
 
-            var performanceMonitor = new PerformanceMonitor("Training Set Population", Model.RecordsPerMessage, Model.TotalRecordsToParse, Model.UpdateMessageAction);
+            var performanceMonitor = new PerformanceMonitor("Training Set Population", 1000, Model.MaximumRecordsToParse, Console.WriteLine);
 
             foreach (var trainingSetItem in Model.TrainingSetItems)
             {
@@ -49,7 +52,7 @@ namespace Revert.Core.Text.Extraction
                 }
 
                 trainingSetItem.Tags.ForEach(tag => recordCountByTag.IncrementValue(tag));
-                if (performanceMonitor.Tick() == Model.TotalRecordsToParse) break;
+                if (performanceMonitor.Tick() == Model.MaximumRecordsToParse) break;
             }
 
             Model.TagMap = new TagMap
@@ -66,7 +69,7 @@ namespace Revert.Core.Text.Extraction
             var countByToken = model.TagMap.TotalCountByToken;
             var countByTagByToken = model.TagMap.CountByTagByTokenMatrix;
 
-            model.UpdateMessageAction($"Updating model with new training set item: {trainingSetItem.Source.OrIfEmpty("User Input Text")}");
+            Console.WriteLine($"Updating model with new training set item: {trainingSetItem.Source.OrIfEmpty("User Input Text")}");
             var tokens = model.Tokenizer.GetTokens(trainingSetItem.Text);
             foreach (var token in tokens)
             {

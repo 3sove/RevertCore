@@ -7,21 +7,25 @@ using Revert.Core.Text.Tokenization;
 
 namespace Revert.Core.Text.Extraction
 {
-    public class TagMapper : FunctionalModule<TagMapper, TagMapModel>
+    public class TagMapper
     {
-        protected override void Execute()
+        public TagMapModel Model { get; set; }
+
+        private TagCountByTokenGenerator tagCountByTokenGenerator = new TagCountByTokenGenerator();
+
+        public void Execute()
         {
             var model = new TagCountByTokenGeneratorModel
             {
                 DirectoryPath = Model.TrainingDocumentAndDirectoryPath,
                 TrainingSetItems = Model.TrainingSetItemEnumerable,
-                TotalRecordsToParse = Model.TotalRecordsToParse,
-                RecordsPerMessage = Model.RecordsPerMessage,
-                UpdateMessageAction = Model.UpdateMessageAction,
+                MaximumRecordsToParse = Model.TotalRecordsToParse,
                 Tokenizer = Model.Tokenizer
             };
 
-            Model.TagCountByTokenGeneratorModel = TagCountByTokenGenerator.Instance.Execute(model);
+            tagCountByTokenGenerator.Execute();
+
+            Model.TagCountByTokenGeneratorModel = tagCountByTokenGenerator.Model;
             Model.TagMap = Model.TagCountByTokenGeneratorModel.TagMap;
             GatherStatisticalDetails(Model);
         }
@@ -34,7 +38,7 @@ namespace Revert.Core.Text.Extraction
 
         public TagMapModel UpdateTagMap(TagMapModel model, TrainingSetItem trainingSetItem)
         {
-            TagCountByTokenGenerator.Instance.UpdateTagMap(model.TagCountByTokenGeneratorModel, trainingSetItem);
+            tagCountByTokenGenerator.UpdateTagMap(model.TagCountByTokenGeneratorModel, trainingSetItem);
             model.UpdateMessageAction("Updating Statistics");
             GatherStatisticalDetails(model);
             model.UpdateMessageAction(string.Empty);
@@ -43,19 +47,19 @@ namespace Revert.Core.Text.Extraction
 
         private void GatherStatisticalDetails(TagMapModel model)
         {
-            PublishUpdateMessage("Analyzing Statistical Patterns");
+            Console.WriteLine("Analyzing Statistical Patterns");
             model.TagMap.TotalCountByTag = GetTokenCountByTag(model);
             model.AverageTokenCount = (model.TagMap.TotalTokenCount + 1) / (model.TagMap.TotalCountByTag.Count + 1);
             model.MedianTokenCountAcrossTags = GetMedianTokenCount(model);
 
-            PublishUpdateMessage("Normalizing Vector Maps");
+            Console.WriteLine("Normalizing Vector Maps");
             model.TagMap.NormalizingFactorByTag = GetNormalizingFactorByTag(model);
             model.TagMap.NormalizedCountByTagByTokenMatrix = GetNormalizedCountByTagByTokenMatrix(model);
             model.TagMap.NormalizedCountByTokenByTagMatrix = GetNormalizedCountByTokenByTagMatrix(model.TagMap.NormalizedCountByTagByTokenMatrix);
             model.TagMap.NormalizedTotalCountByTag = GetNormalizedTokenCountByTag(model);
             model.TagMap.NormalizedTotalCountByToken = GetNormalizedTotalCountByToken(model);
 
-            PublishUpdateMessage("Calculating Final Statistical Distributions");
+            Console.WriteLine("Calculating Final Statistical Distributions");
 
             model.TagMap.MedianTokenCountByToken = GetMedianTokenCountByToken(model);
             model.TagMap.MeanTokenCountByToken = GetMeanTokenCountByToken(model);
@@ -387,13 +391,13 @@ namespace Revert.Core.Text.Extraction
                 zScore = (tokenTotalCount - tagMap.MeanTokenCount) / tagMap.TokenCountStandardDeviation;
                 if (zScore > 2) //TODO: Test alternative zScore thresholds
                 {
-                    PublishUpdateMessage("Ignoring common token {0}", token);
+                    Console.WriteLine("Ignoring common token {0}", token);
                     return false;
                 }
 
                 if (zScore >= -0.035) return true;
 
-                PublishUpdateMessage("Ignoring rare token {0}", token);
+                Console.WriteLine("Ignoring rare token {0}", token);
                 return false;
             }
 

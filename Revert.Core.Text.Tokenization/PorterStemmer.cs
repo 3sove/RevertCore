@@ -6,7 +6,7 @@ namespace Revert.Core.Text.Tokenization
     /// <summary>
     /// Stemmer, implementing the Porter Stemming algorithm
     /// </summary>
-    public class PorterStemmer : FunctionalModule<PorterStemmer>
+    public class PorterStemmer
     {
         private int currentPosition,
             // offset into _wordToStem
@@ -18,6 +18,8 @@ namespace Revert.Core.Text.Tokenization
 
         public int Length { get; private set; }
         public char[] Buffer { get; private set; }
+
+        public static PorterStemmer Instance = new PorterStemmer();
 
         public PorterStemmer()
         {

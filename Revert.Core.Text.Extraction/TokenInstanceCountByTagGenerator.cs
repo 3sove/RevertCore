@@ -5,7 +5,7 @@ using Revert.Core.Text.Tokenization;
 
 namespace Revert.Core.Text.Extraction
 {
-    public class TokenInstanceCountByTagGeneratorModel : ModuleModel
+    public class TokenInstanceCountByTagGeneratorModel
     {
         public Dictionary<string, Dictionary<string, int>> CountByTagByToken
         {
@@ -27,9 +27,9 @@ namespace Revert.Core.Text.Extraction
         public int RecordCount { get; set; }
     }
 
-    public class TokenInstanceCountByTagGenerator : FunctionalModule<TokenInstanceCountByTagGenerator, TokenInstanceCountByTagGeneratorModel>
+    public class TokenInstanceCountByTagGenerator
     {
-        protected override void Execute()
+        public void Execute(TokenInstanceCountByTagGeneratorModel model)
         {
             //for each word in the tweet, increase the word's hashtag dictionary values for the hashtags
             var countByTagByToken = new Dictionary<string, Dictionary<string, int>>();
@@ -41,9 +41,9 @@ namespace Revert.Core.Text.Extraction
             var fullCountByTag = new Dictionary<string, int>();
             var tokenizer = new SimpleTokenizer();
 
-            foreach (var textAndTags in Model.RecordTextAndTagEnumerable)
+            foreach (var textAndTags in model.RecordTextAndTagEnumerable)
             {
-                if ((++recordCount % Model.RecordsPerMessage) == 1) Console.WriteLine("Reading line {0} through {1}.", recordCount, recordCount + Model.RecordsPerMessage - 1);
+                if ((++recordCount % 1000) == 1) Console.WriteLine("Reading line {0} through {1}.", recordCount, recordCount + 1000 - 1);
 
                 foreach (var token in tokenizer.GetTokens(textAndTags.Item1))
                 {
@@ -68,13 +68,13 @@ namespace Revert.Core.Text.Extraction
                     }
                 }
 
-                if (recordCount == Model.TotalRecordsToParse) break;
+                if (recordCount == model.TotalRecordsToParse) break;
             }
 
-            Model.CountByTagByToken = countByTagByToken;
-            Model.HashTags = hashTags;
-            Model.FullCountByTag = fullCountByTag;
-            Model.RecordCount = recordCount;
+            model.CountByTagByToken = countByTagByToken;
+            model.HashTags = hashTags;
+            model.FullCountByTag = fullCountByTag;
+            model.RecordCount = recordCount;
         }
     }
 }

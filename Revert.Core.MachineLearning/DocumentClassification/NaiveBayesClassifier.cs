@@ -9,15 +9,17 @@ namespace Revert.Core.MachineLearning.DocumentClassification.Araculus
 {
     public class NaiveBayesClassifier : ClassifierBase
     {
+        public TagMapper TagMapper { get; set; } = new TagMapper();
+
         public DocumentClassificationResult Classify<TDocument>(TagMapModel model, TDocument document) where TDocument : ITextDocument
         {
-            var messageTags = TagMapper.Instance.GetTagsLite(model.TagMap, document.Text, 0.0f, model.Tokenizer);
+            var messageTags = TagMapper.GetTagsLite(model.TagMap, document.Text, 0.0f, model.Tokenizer);
             return new DocumentClassificationResult { Document = document, CategoryWeights = messageTags };
         }
 
         public List<Tuple<string, float>> Classify(TagMapModel model, string text, float cutoff = 0.0f)
         {
-            return TagMapper.Instance.GetTagsLite(model.TagMap, text, cutoff, model.Tokenizer);
+            return TagMapper.GetTagsLite(model.TagMap, text, cutoff, model.Tokenizer);
         }
 
         public List<DocumentClassificationResult> Classify<TDocument>(TagMapModel model, IEnumerable<TDocument> documentEnumerable) where TDocument : ITextDocument
@@ -29,7 +31,7 @@ namespace Revert.Core.MachineLearning.DocumentClassification.Araculus
                 if (i++ % 10 == 0) Console.WriteLine("Tagging document {0} through {1}.", i, i + 10);
 
                 Dictionary<string, Dictionary<string, float>> frequenciesByTokenByTag;
-                var messageTags = TagMapper.Instance.GetTags(model.TagMap, message.Text, 0.0f, model.Tokenizer, out frequenciesByTokenByTag);
+                var messageTags = TagMapper.GetTags(model.TagMap, message.Text, 0.0f, model.Tokenizer, out frequenciesByTokenByTag);
                 documentClassificationResults.Add(new DocumentClassificationResult { Document = message, CategoryWeights = messageTags, CategoryTokenWeights = frequenciesByTokenByTag });
             }
 
@@ -49,7 +51,7 @@ namespace Revert.Core.MachineLearning.DocumentClassification.Araculus
             Parallel.ForEach(documentEnumerable, message =>
             {
                 if (i++ % 100 == 0) Console.WriteLine("Tagging document {0} through {1} - {2} documents per second.", i, i + 100, (i / (sw.ElapsedMilliseconds * 0.001f)));
-                var messageTags = TagMapper.Instance.GetTagsLite(model.TagMap, message.Text, 0.0f, model.Tokenizer);
+                var messageTags = TagMapper.GetTagsLite(model.TagMap, message.Text, 0.0f, model.Tokenizer);
                 documentClassificationResults.Add(new DocumentClassificationResult { Document = message, CategoryWeights = messageTags });
             });
             
@@ -73,7 +75,7 @@ namespace Revert.Core.MachineLearning.DocumentClassification.Araculus
 
                     Dictionary<string, Dictionary<string, float>> categoryTokenWeights = null;
 
-                    var messageTags = includeCategoryTokenWeights ? TagMapper.Instance.GetTags(model.TagMap, message.Text, 0.0f, model.Tokenizer, out categoryTokenWeights) : TagMapper.Instance.GetTagsLite(model.TagMap, message.Text, 0.0f, model.Tokenizer);
+                    var messageTags = includeCategoryTokenWeights ? TagMapper.GetTags(model.TagMap, message.Text, 0.0f, model.Tokenizer, out categoryTokenWeights) : TagMapper.GetTagsLite(model.TagMap, message.Text, 0.0f, model.Tokenizer);
 
                     documentClassificationResults.Add(new DocumentClassificationResult
                     {
