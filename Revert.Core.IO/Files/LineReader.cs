@@ -19,12 +19,12 @@ namespace Revert.Core.IO.Files
         private IEnumerator<string> enumerator;
         public IEnumerator<string> GetEnumerator()
         {
-            return enumerator ?? (enumerator = new GenericFileEnumerator(new GenericFileEnumeratorModel { FilePath = FilePath, RecordsPerMessage = LinesPerMessage }));
+            return enumerator ?? (enumerator = new GenericFileEnumerator(new GenericFileEnumeratorModel { FilePath = FilePath }));
         }
 
         System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
         {
-            return enumerator ?? (enumerator = new GenericFileEnumerator(new GenericFileEnumeratorModel { FilePath = FilePath, RecordsPerMessage = LinesPerMessage }));
+            return enumerator ?? (enumerator = new GenericFileEnumerator(new GenericFileEnumeratorModel { FilePath = FilePath }));
         }
 
         public void Dispose()

@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
-using Revert.Core.Common.Modules;
+﻿using System;
+using System.Collections.Generic;
 using Revert.Core.IO;
 
 namespace Revert.Core.Text.Extraction.Gazetteer
 {
-    public class GazetteerGeneratorModel : ModuleModel
+    public class GazetteerGeneratorModel
     {
         public string DirectoryPath { get; set; }
         public bool IncludeSubDirectories { get; set; }
@@ -63,7 +63,7 @@ namespace Revert.Core.Text.Extraction.Gazetteer
 
             foreach (var file in directorySearchModel.Files)
             {
-                model.UpdateMessageAction($"Evaluating {file.Name}.");
+                Console.WriteLine($"Evaluating {file.Name}.");
                 var gazetteeerFileReader = new GazetteerFileReader();
                 var fileReaderModel = new GazetteerFileReaderModel { File = file };
                 gazetteeerFileReader.Execute(fileReaderModel);

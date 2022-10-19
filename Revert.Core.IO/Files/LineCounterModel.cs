@@ -1,9 +1,8 @@
 using System.Collections.Concurrent;
-using Revert.Core.Common.Modules;
 
 namespace Revert.Core.IO.Files
 {
-    public class LineCounterModel : ModuleModel
+    public class LineCounterModel
     {
         public string FilePath { get; set; }
         public int LineCount { get; set; }

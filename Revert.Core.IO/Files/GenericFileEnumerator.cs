@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace Revert.Core.IO.Files
@@ -21,9 +22,9 @@ namespace Revert.Core.IO.Files
             currentLine = FileStream.ReadLine();
             linesRead++;
 
-            int linesPerMessage = Model.RecordsPerMessage;
+            int linesPerMessage = 1000;
 
-            if ((linesRead % linesPerMessage) == 1) Model.UpdateMessageAction($"Reading line {linesRead} to {linesRead + linesPerMessage - 1}.");
+            if ((linesRead % linesPerMessage) == 1) Console.WriteLine($"Reading line {linesRead} to {linesRead + linesPerMessage - 1}.");
 
             return currentLine != null;
         }

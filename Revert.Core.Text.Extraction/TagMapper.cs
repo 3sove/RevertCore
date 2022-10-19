@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Revert.Core.Common.Modules;
 using Revert.Core.Extensions;
 using Revert.Core.Text.Tokenization;
 
@@ -39,9 +38,9 @@ namespace Revert.Core.Text.Extraction
         public TagMapModel UpdateTagMap(TagMapModel model, TrainingSetItem trainingSetItem)
         {
             tagCountByTokenGenerator.UpdateTagMap(model.TagCountByTokenGeneratorModel, trainingSetItem);
-            model.UpdateMessageAction("Updating Statistics");
+            Console.WriteLine("Updating Statistics");
             GatherStatisticalDetails(model);
-            model.UpdateMessageAction(string.Empty);
+            Console.WriteLine();
             return model;
         }
 

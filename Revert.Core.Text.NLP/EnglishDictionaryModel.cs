@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
-using Revert.Core.Common.Modules;
 using Revert.Core.Extensions;
 
 namespace Revert.Core.Text.NLP
 {
-    public class EnglishDictionaryModel : ModuleModel
+    public class EnglishDictionaryModel
     {
         public string WordNetDirectoryPath { get; set; }
         public string MobyPartsOfSpeechFilePath { get; set; }

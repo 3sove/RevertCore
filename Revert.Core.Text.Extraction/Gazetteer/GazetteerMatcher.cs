@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Revert.Core.Common.Modules;
 using Revert.Core.IO.Files;
 
 namespace Revert.Core.Text.Extraction.Gazetteer

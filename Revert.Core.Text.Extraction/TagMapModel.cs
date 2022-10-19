@@ -1,14 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Revert.Core.Common.Modules;
 using Revert.Core.Text.Extraction.TextDocumentAndDirectory;
 using Revert.Core.Text.Tokenization;
 using ProtoBuf;
 
 namespace Revert.Core.Text.Extraction
 {
-    public class TagMapModel : ModuleModel
+    public class TagMapModel
     {
         public TagMapModel()
         { 

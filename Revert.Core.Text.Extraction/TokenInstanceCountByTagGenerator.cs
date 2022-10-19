@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Revert.Core.Common.Modules;
 using Revert.Core.Text.Tokenization;
 
 namespace Revert.Core.Text.Extraction

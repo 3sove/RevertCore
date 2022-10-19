@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Revert.Core.Common.Modules;
 using Revert.Core.Common.Performance;
 using Revert.Core.Extensions;
 using Revert.Core.Text.Tokenization;

@@ -1,8 +1,7 @@
-using Revert.Core.Common.Modules;
 
 namespace Revert.Core.IO.Files
 {
-    public class LargeFileSplitterModel : ModuleModel
+    public class LargeFileSplitterModel
     {
         private FileSplitOptions splitOptions = FileSplitOptions.SplitByByteCount;
         public FileSplitOptions SplitOptions

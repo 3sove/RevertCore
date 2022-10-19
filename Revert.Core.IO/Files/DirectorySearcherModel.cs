@@ -1,10 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
-using Revert.Core.Common.Modules;
 
 namespace Revert.Core.IO
 {
-    public class DirectorySearcherModel : ModuleModel
+    public class DirectorySearcherModel
     {
         public string DirectoryPath { get; set; }
         public System.IO.DirectoryInfo DirectoryInfo { get; set; }

@@ -56,7 +56,7 @@ namespace Revert.Core.IO.Serialization.Twitter
 
                     if ((writtenRecordCount % outputModulusSize) == 1)
                     {
-                        Model.UpdateMessageAction($"Writing converted tweet {writtenRecordCount} to {writtenRecordCount + outputModulusSize - 1} of {targetRecordCount}.");
+                        Console.WriteLine($"Writing converted tweet {writtenRecordCount} to {writtenRecordCount + outputModulusSize - 1} of {targetRecordCount}.");
 
                         if (textWriter != null)
                         {

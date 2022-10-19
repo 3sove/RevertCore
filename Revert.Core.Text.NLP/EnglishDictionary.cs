@@ -38,6 +38,8 @@ namespace Revert.Core.Text.NLP
                 WordByString[word.Value] = word;
         }
 
+        private int recordsPerMessage = 1000;
+
         private void LoadWordDetails()
         {
             Console.WriteLine("Loading parts of speech tagger.");
@@ -51,9 +53,9 @@ namespace Revert.Core.Text.NLP
 
             foreach (var partOfSpeechWord in partsOfSpeechTagger.PartsOfSpeechByWord)
             {
-                if ((i++%Model.RecordsPerMessage) == 0)
+                if ((i++%recordsPerMessage) == 0)
                     Console.WriteLine("Enhancing words {0:#,#} through {1:#,#} of {2:#,#}.",
-                        i, (i + Model.RecordsPerMessage - 1).OrIfSmaller(partsOfSpeechTagger.PartsOfSpeechByWord.Count), partsOfSpeechTagger.PartsOfSpeechByWord.Count);
+                        i, (i + recordsPerMessage - 1).OrIfSmaller(partsOfSpeechTagger.PartsOfSpeechByWord.Count), partsOfSpeechTagger.PartsOfSpeechByWord.Count);
 
                 foreach (var partOfSpeech in partOfSpeechWord.Value)
                 {

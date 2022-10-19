@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Concurrent;
-using Revert.Core.Common.Modules;
 
 namespace Revert.Core.IO.Files
 {

@@ -1,5 +1,4 @@
-﻿using Revert.Core.Common.Modules;
-using System;
+﻿using System;
 
 namespace Revert.Core.Text.Tokenization
 {
