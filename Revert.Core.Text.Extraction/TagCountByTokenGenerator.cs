@@ -26,8 +26,9 @@ namespace Revert.Core.Text.Extraction
     {
         public TagCountByTokenGeneratorModel Model { get; set; } 
 
-        public void Execute()
+        public void Execute(TagCountByTokenGeneratorModel model)
         {
+            Model = model;
             var countByToken = new Dictionary<string, int>();
             var countByTagByToken = new Dictionary<string, Dictionary<string, int>>();
 

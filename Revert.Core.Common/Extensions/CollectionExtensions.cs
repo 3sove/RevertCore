@@ -184,15 +184,15 @@ namespace Revert.Core.Extensions
             return distinct;
         }
 
-        //public static HashSet<T> ToHashSet<T>(this IEnumerable<T> collection)
-        //{
-        //    return new HashSet<T>(collection);
-        //}
+        public static HashSet<T> ToHashSet<T>(this IEnumerable<T> collection)
+        {
+            return new HashSet<T>(collection);
+        }
 
-        //public static HashSet<T> ToHashSet<T>(this IEnumerable<T> collection, IEqualityComparer<T> comparer)
-        //{
-        //    return new HashSet<T>(collection, comparer);
-        //}
+        public static HashSet<T> ToHashSet<T>(this IEnumerable<T> collection, IEqualityComparer<T> comparer)
+        {
+            return new HashSet<T>(collection, comparer);
+        }
 
         public static HashSet<T> TakePage<T, TSortKey>(this HashSet<T> items, int pageSize, int pageNumber, Func<T, TSortKey> sortFunction)
         {

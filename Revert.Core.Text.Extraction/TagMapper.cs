@@ -12,7 +12,7 @@ namespace Revert.Core.Text.Extraction
 
         private TagCountByTokenGenerator tagCountByTokenGenerator = new TagCountByTokenGenerator();
 
-        public void Execute()
+        public TagMapModel Execute()
         {
             var model = new TagCountByTokenGeneratorModel
             {
@@ -22,11 +22,13 @@ namespace Revert.Core.Text.Extraction
                 Tokenizer = Model.Tokenizer
             };
 
-            tagCountByTokenGenerator.Execute();
+            tagCountByTokenGenerator.Execute(model);
 
             Model.TagCountByTokenGeneratorModel = tagCountByTokenGenerator.Model;
             Model.TagMap = Model.TagCountByTokenGeneratorModel.TagMap;
             GatherStatisticalDetails(Model);
+
+            return Model;
         }
 
         public void Update(TagMapModel model)
